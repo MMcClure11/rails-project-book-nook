@@ -1,4 +1,9 @@
 <h1>Book Title: <%= @book.title %></h1>
+<h2>Author: <%= @book.author %></h2>
+<h3>Year Published: <%= @book.year_published %></h3>
+<h3>Page Count: <%= @book.page_count %></h3>
+<h4>Description:</h4>
+<p><%= @book.description %></p>
 
 <%= button_to "Edit Book", edit_book_path(@book), method: :get %>
 <%=  button_to "Delete", book_path(@book), method: :delete, data: { confirm: "Are you sure?"} %> 
