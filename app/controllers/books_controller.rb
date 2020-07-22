@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :get_book, only: [:show]
+  before_action :get_book, only: [:show, :edit, :update]
 
   def index
     @books = Book.all
@@ -19,6 +19,12 @@ class BooksController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+  end
+
+  def update
   end
 
   private
