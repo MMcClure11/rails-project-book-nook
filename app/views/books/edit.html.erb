@@ -1,9 +1,5 @@
 <h1>Edit <%= @book.title %></h1>
 
-<%= form_for @book do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.submit %>
-<% end %>
+<%= render 'form' %>
 
 <%= link_to "View Book", book_path(@book) %>
