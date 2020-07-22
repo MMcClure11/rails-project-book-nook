@@ -25,6 +25,12 @@ class BooksController < ApplicationController
   end
 
   def update
+    @book.update(book_params)
+    if @book.save
+      redirect_to @book
+    else
+      render :edit
+    end
   end
 
   private
