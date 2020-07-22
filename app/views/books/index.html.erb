@@ -1,7 +1,7 @@
 <h1>Here are all the Books!</h1>
 
 <ul>
-  <% @books.each do |book| %>
+  <% @books.sort_by_title.each do |book| %>
     <li><%= link_to book.title, book %></li>
   <% end %>
 </ul>
