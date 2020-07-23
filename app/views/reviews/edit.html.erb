@@ -1,0 +1,7 @@
+<h1>Edit Your Review for: <%= @book.title%></h1>
+
+<%= render 'form' %>
+
+<%= link_to "Book Reviews", book_reviews_path(@book) %><br>
+<%= link_to "View Book", book_path(@book) %><br>
+<%= link_to "All Books", books_path %>

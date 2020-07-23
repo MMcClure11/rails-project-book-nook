@@ -2,7 +2,7 @@
 
 <ul>
   <% @reviews.each do |review| %>
-    <li>Rating: <%= review.rating %> - <%= review.content %></li>
+    <li><%= link_to "Rating:", edit_book_review_path(@book, review) %><%= review.rating %> - <%= review.user.username %> says: <%= review.content %></li>
   <% end %>
 </ul>
 

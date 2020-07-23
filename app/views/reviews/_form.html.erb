@@ -1,0 +1,9 @@
+<%= form_for @review do |f| %>
+  <%= f.hidden_field :user_id %>
+  <%= f.hidden_field :book_id %>
+  <%= f.label :rating %>
+  <%= f.number_field :rating %><br>
+  <%= f.label :content %>
+  <%= f.text_area :content %><br>
+  <%= f.submit %>
+<% end %>
