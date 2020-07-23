@@ -1,8 +1,16 @@
+<% if @errors %>
+<ul>
+  <% @errors.each do |error| %>
+    <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_for @book do |f| %>
   <%= f.label :title %>
-  <%= f.text_field :title %><br>
+  <%= f.text_field :title, required: true%><br>
   <%= f.label :author %>
-  <%= f.text_field :author %><br>
+  <%= f.text_field :author, required: true%><br>
   <%= f.label :year_published %>
   <%= f.number_field :year_published %><br>
   <%= f.label :page_count %>
