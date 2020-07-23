@@ -9,6 +9,13 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def show
+    if params[:book_id]
+      @book = Book.find(params[:book_id])
+      @review = @book.reviews.find(params[:id])
+    end
+  end
+
   def new
     if params[:book_id] && !Book.exists?(params[:book_id])
       redirect_to books_path

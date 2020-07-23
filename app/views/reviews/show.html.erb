@@ -1,0 +1,7 @@
+<h1>Review for <%= @book.title %> by <%= @review.user.username %> </h1>
+
+<h2>Rating: <%= @review.rating %></h2> 
+<h3><%= @review.content %></h3>
+
+
+<%= link_to "Edit this Review", edit_book_review_path(@book, @review) %>
