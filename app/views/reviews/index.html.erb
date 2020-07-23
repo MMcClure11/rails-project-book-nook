@@ -1,0 +1,7 @@
+<h1>Review Index Page</h1>
+
+<ul>
+<% @reviews.each do |review| %>
+  <li><%= review.book.title %> - Rating: <%= review.rating %> - <%= review.content %></li>
+<% end %>
+</ul>
