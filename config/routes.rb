@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   root "pages#welcome"
   resources :books do 
-    resources :reviews, only: [:index, :show]
+    resources :reviews
   end
+
+  resources :reviews, only: [:create, :update]
 
 end
