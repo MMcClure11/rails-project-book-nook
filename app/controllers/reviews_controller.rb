@@ -39,7 +39,7 @@ class ReviewsController < ApplicationController
 
   def edit
     if params[:book_id]
-      @book = Book.find(params[:book_id])
+      @book = Book.find_by(id: params[:book_id])
       if @book.nil?
         flash[:notice] = "Book not found."
         redirect_to books_path
@@ -56,11 +56,41 @@ class ReviewsController < ApplicationController
   end
 
   def update
+    #  if params[:review][:book_id]
+    #   @book = Book.find_by(id: params[:review][:book_id])
+    #   if @book.nil?
+    #     flash[:notice] = "Book not found."
+    #     redirect_to books_path
+    #   else
+    #     if params[:id]
+    #       @review = @book.reviews.find_by(id: params[:id])
+    #       if @review.nil?
+    #         flash[:notice] = "Review not found." 
+    #         redirect_to book_reviews_path(@book)
+    #       end
+    #     end
+    #   end
+    #  else
+    #   @book = Book.find(params[:review][:book_id])
+    #   @review = Review.find(params[:id])
+    #   @review.update(review_params)
+    #   if @review.save
+    #     redirect_to book_reviews_path(@book)
+    #   else
+    #     @errors = @review.errors.full_messages
+    #     render :edit
+    #   end
+    #  end
+    
     @book = Book.find(params[:review][:book_id])
     @review = Review.find(params[:id])
     @review.update(review_params)
-    @review.save
-    redirect_to book_reviews_path(@book)
+    if @review.save
+      redirect_to book_reviews_path(@book)
+    else
+      @errors = @review.errors.full_messages
+      render :edit
+    end
   end
 
   def destroy
