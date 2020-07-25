@@ -18,6 +18,7 @@ class ReviewsController < ApplicationController
 
   def new
     if params[:book_id] && !Book.exists?(params[:book_id])
+      flash[:notice] = "Book not found."
       redirect_to books_path
     else
       @review = Review.new(book_id: params[:book_id], user_id: 1)
