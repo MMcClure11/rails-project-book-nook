@@ -28,8 +28,12 @@ class ReviewsController < ApplicationController
   def create
     @book = Book.find(params[:review][:book_id])
     @review = Review.new(review_params)
-    @review.save
-    redirect_to book_reviews_path(@book)
+    if @review.save
+      redirect_to book_reviews_path(@book)
+    else
+      @errors = @review.errors.full_messages
+      render :new
+    end
   end
 
   def edit
