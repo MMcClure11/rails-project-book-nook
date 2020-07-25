@@ -1,7 +1,9 @@
 <% if @errors %>
+<ul>
   <% @errors.each do |error| %>
-    <%= error %>
+    <li><%= error %></li>
   <% end %>
+</ul>
 <% end %>
 
 <%= form_for @review do |f| %>
