@@ -38,8 +38,21 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @book = Book.find(params[:book_id])
-    @review = Review.find(params[:id])
+    if params[:book_id]
+      @book = Book.find(params[:book_id])
+      if @book.nil?
+        flash[:notice] = "Book not found."
+        redirect_to books_path
+      else
+        @review = @book.reviews.find(params[:id])
+        if @review.nil?
+          flash[:notice] = "Review not found." 
+          redirect_to book_reviews_path(@book)
+        end
+      end
+    else
+      @review = Review.find(params[:id])
+    end
   end
 
   def update

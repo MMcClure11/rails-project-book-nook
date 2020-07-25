@@ -1,5 +1,9 @@
 <h1>Reviews for <%= @book.title %></h1>
 
+<% if flash[:notice] %>
+   <%= flash[:notice] %>
+ <% end %>
+
 <ul>
   <% @reviews.each do |review| %>
     <li><%= link_to "Rating:", book_review_path(@book, review) %><%= review.rating %> - <%= review.user.username %> says: <%= review.content %></li>
