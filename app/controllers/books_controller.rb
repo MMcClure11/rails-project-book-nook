@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :get_book, only: [:show, :edit, :update, :destroy]
+  before_action :require_login
 
   def index
     @books = Book.all
