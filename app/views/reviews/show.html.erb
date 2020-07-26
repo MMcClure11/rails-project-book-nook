@@ -3,5 +3,6 @@
 <h2>Rating: <%= @review.rating %></h2> 
 <h3><%= @review.content %></h3>
 
-
+<% if @review.user == current_user %>
 <%= link_to "Edit this Review", edit_book_review_path(@book, @review) if @review.book %>
+<% end %>
