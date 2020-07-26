@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
 
+  before_action :require_login
+
   def index
     if params[:book_id].present? 
       @book = Book.find(params[:book_id])
@@ -21,14 +23,14 @@ class ReviewsController < ApplicationController
       flash[:notice] = "Book not found."
       redirect_to books_path
     else
-      @review = Review.new(book_id: params[:book_id], user_id: 1)
+      @review = Review.new(book_id: params[:book_id])
       @book = Book.find(params[:book_id])
     end
   end
 
   def create
     @book = Book.find(params[:review][:book_id])
-    @review = Review.new(review_params)
+    @review = current_user.reviews.new(review_params)
     if @review.save
       redirect_to book_reviews_path(@book)
     else
@@ -103,7 +105,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:user_id, :book_id, :rating, :content)
+    params.require(:review).permit(:book_id, :rating, :content)
   end
 
 end
