@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     end
     @user.save
     session[:user_id] = @user.id
-    redirect_to books_path
+    redirect_to user_path(@user)
   end
 
   private
