@@ -101,7 +101,7 @@ class ReviewsController < ApplicationController
       end
     else
       flash[:notice] = "You may not edit another user's review."
-      redirect_to "/books/#{params[:book_id]}/reviews/#{params[:id]}"
+      redirect_to book_reviews_path(book)
     end
   end
 
