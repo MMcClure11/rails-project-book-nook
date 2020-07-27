@@ -89,15 +89,19 @@ class ReviewsController < ApplicationController
     #   end
     #  end
     
-    @book = Book.find(params[:review][:book_id])
+    book = Book.find(params[:review][:book_id])
     @review = Review.find(params[:id])
-    
-    @review.update(review_params)
-    if @review.save
-      redirect_to book_reviews_path(@book)
+    if @review.user_id == current_user.id
+      @review.update(review_params)
+      if @review.save
+        redirect_to book_reviews_path(book)
+      else
+        @errors = @review.errors.full_messages
+        render :edit
+      end
     else
-      @errors = @review.errors.full_messages
-      render :edit
+      flash[:notice] = "You may not edit another user's review."
+      redirect_to "/books/#{params[:book_id]}/reviews/#{params[:id]}"
     end
   end
 
