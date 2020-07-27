@@ -41,19 +41,24 @@ class ReviewsController < ApplicationController
 
   def edit
     if params[:book_id]
-      @book = Book.find_by(id: params[:book_id])
-      if @book.nil?
+      book = Book.find_by(id: params[:book_id])
+      if book.nil?
         flash[:notice] = "Book not found."
         redirect_to books_path
       else
-        @review = @book.reviews.find(params[:id])
+        @review = book.reviews.find_by(id: params[:id])
         if @review.nil?
           flash[:notice] = "Review not found." 
-          redirect_to book_reviews_path(@book)
+          redirect_to book_reviews_path(book)
+        elsif @review.user_id == current_user.id
+          @book = @review.book
+        else
+          flash[:notice] = "You may not edit another user's review."
+          redirect_to "/books/#{params[:book_id]}/reviews/#{params[:id]}"
         end
       end
-    else
-      @review = Review.find(params[:id])
+    # else
+    #   @review = Review.find(params[:id])
     end
   end
 
@@ -86,6 +91,7 @@ class ReviewsController < ApplicationController
     
     @book = Book.find(params[:review][:book_id])
     @review = Review.find(params[:id])
+    
     @review.update(review_params)
     if @review.save
       redirect_to book_reviews_path(@book)
