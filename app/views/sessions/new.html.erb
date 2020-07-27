@@ -1,7 +1,5 @@
 <h1>Login</h1>
 
-<%= @error if @error %>
-
 <% if false #this works because form_for uses the symbol and assumes you want to post to the same route you are currently in %>
 <%= form_for :user do |f|%>
   <%= f.label :username %>
