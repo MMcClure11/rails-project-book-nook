@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
 
-  before_action :require_login
+  before_action :authenticate
 
   def index
     if params[:book_id].present? 
