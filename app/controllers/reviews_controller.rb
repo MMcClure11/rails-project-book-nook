@@ -107,8 +107,12 @@ class ReviewsController < ApplicationController
 
   def destroy
     @book = Book.find(params[:book_id])
-    @review = Review.find(params[:id])
-    @review.destroy
+    review = Review.find(params[:id])
+    if current_user.id == review.user_id
+      review.destroy
+    else
+      flash[:notice] = "You may not delete another user's review."
+    end
     redirect_to book_reviews_path(@book)
   end
 
