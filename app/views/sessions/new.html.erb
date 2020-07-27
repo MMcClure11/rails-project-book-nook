@@ -1,17 +1,5 @@
 <h1>Login</h1>
 
-<% if false #this works because form_for uses the symbol and assumes you want to post to the same route you are currently in %>
-<%= form_for :user do |f|%>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.submit "Login" %>
-<% end %>
-
-<% end %>
-
 <%= form_tag("/login") do %>
   <%= label_tag :username %>
   <%= text_field_tag :username %>
