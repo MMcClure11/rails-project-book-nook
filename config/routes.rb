@@ -8,10 +8,10 @@ Rails.application.routes.draw do
 
   resources :reviews, only: [:create, :update]
 
-  get '/signup', to: 'users#new', as: :signup
-  get '/login', to: 'sessions#new', as: :login
-  post '/login', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
+  get '/signup' => 'users#new', as: :signup
+  get '/login' => 'sessions#new', as: :login
+  post '/login' => 'sessions#create'
+  delete '/logout' => 'sessions#destroy'
   
   get 'auth/facebook/callback', to: "sessions#fb_create"
 
