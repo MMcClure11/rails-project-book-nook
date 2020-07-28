@@ -5,14 +5,13 @@ class Book < ApplicationRecord
   validates :title, presence: true
   validates :author, presence: true
 
-  exclude_words = ["the", "and", "or", "to", "a", "but"]
+  #exclude_words = ["the", "and", "or", "to", "a", "but"]
 
   scope :sort_by_title, -> { order(title: :asc) }
 
   def self.create_book_from_api(search)
     book = GoogleApi.search(search)
-    byebug
-    @book = Book.find_or_create_by(title: book["volumeInfo"]["title"], author: book["volumeInfo"]["authors"], year_published: book["volumeInfo"]["publishedDate"], page_count: book["volumeInfo"]["pageCount"], description: book["volumeInfo"]["description"])
+    @book = Book.find_or_create_by(title: book["items"]["volumeInfo"]["title"], author: book["items"]["volumeInfo"]["authors"], year_published: book["items"]["volumeInfo"]["publishedDate"].to_i, page_count: book["items"]["volumeInfo"]["pageCount"], description: book["items"]["volumeInfo"]["description"])
   end
 
   # def self.get_books_by_title(title)

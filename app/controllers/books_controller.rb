@@ -3,7 +3,12 @@ class BooksController < ApplicationController
   before_action :authenticate
 
   def index
-    @books = Book.all
+    @search = params[:search]
+    if @search
+      @book = Book.create_book_from_api(params[:search])
+    else
+      @books = Book.all
+    end
   end
 
   def show

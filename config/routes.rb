@@ -19,4 +19,6 @@ Rails.application.routes.draw do
 
   get '/dashboard' => 'users#dashboard', as: :dashboard 
 
+  #get "/search", to: "books#new"
+
 end

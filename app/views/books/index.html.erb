@@ -4,10 +4,21 @@
    <%#= flash[:notice] %>
  <%# end %>
 
+ <%= form_tag(books_path, method: :get) do %>
+  <%= text_field_tag :search, nil, placeholder: 'Search by Title' %>
+  <%= submit_tag ("Search") %>
+<% end %>
+
+<% if @search %>
+  <%= link_to @book.title, book_path(@book) %>
+<% else %>
+
 <ul>
   <% @books.sort_by_title.each do |book| %>
     <li><%= link_to book.title, book %></li>
   <% end %>
 </ul>
+
+<% end %>
 
 <%= link_to "Create New Book", new_book_path %>
