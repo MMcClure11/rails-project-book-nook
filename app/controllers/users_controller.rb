@@ -6,6 +6,12 @@ class UsersController < ApplicationController
     authorize_user(@user)
   end
 
+  def dashboard
+    authenticate
+    @user = current_user
+    authorize_user(@user)
+  end
+
   def new
     @user = User.new
   end

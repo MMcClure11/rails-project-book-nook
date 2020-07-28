@@ -17,4 +17,6 @@ Rails.application.routes.draw do
 
   resources :users, except: [:new]
 
+  get '/dashboard' => 'users#dashboard', as: :dashboard 
+
 end
