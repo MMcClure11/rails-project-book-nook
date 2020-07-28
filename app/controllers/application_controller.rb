@@ -1,11 +1,15 @@
 class ApplicationController < ActionController::Base
-
   helper_method :current_user
   helper_method :logged_in?
 
-  
+  rescue_from ActiveRecord::RecordNotFound, :with => :rescue404
+  # rescue_from ActionController::RoutingError, :with => :rescue404
 
   private
+
+  def rescue404
+    render file: "#{Rails.root}/public/404.html", layout: false, status: 404
+  end
 
   def log_in(user)
     session[:user_id] = user.id
