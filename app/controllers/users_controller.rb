@@ -1,13 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authenticate, only: [:show]
   
-  def show #why does this never redirect to login when a non-logged_in user tries to access a user show page?
-    @user = User.find(params[:id])
-    authorize_user(@user)
-  end
-
   def dashboard
-    authenticate
     @user = current_user
     authorize_user(@user)
   end
@@ -20,7 +13,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in(@user)
-      redirect_to user_path(@user)
+      redirect_to dashboard_path
     else
       @errors = @user.errors.full_messages 
       render :new

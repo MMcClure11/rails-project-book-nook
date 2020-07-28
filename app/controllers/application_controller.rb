@@ -29,8 +29,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize_user(user)
-    #authenticate
+    authenticate
     redirect_to user_path(current_user) if user != current_user
-  end #####when not logged_in, instead of redirecting to login page it skips authenticate, why?
-
+  end 
 end

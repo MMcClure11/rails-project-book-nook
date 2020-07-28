@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   
   get 'auth/facebook/callback', to: "sessions#fb_create"
 
-  resources :users, except: [:new]
+  resources :users, except: [:new, :show]
 
   get '/dashboard' => 'users#dashboard', as: :dashboard 
 

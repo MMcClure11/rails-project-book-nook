@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     end
     @user.save
     session[:user_id] = @user.id
-    redirect_to user_path(@user)
+    redirect_to dashboard_path
   end
 
   def create
@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:password])
       log_in(@user)
       flash[:success] = "Welcome, #{@user.username}"
-      redirect_to user_path(@user)
+      redirect_to dashboard_path
     else
       flash[:danger] = "Invalid Credentials Given"
       render :new
