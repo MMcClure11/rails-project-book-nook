@@ -9,6 +9,18 @@ class Book < ApplicationRecord
 
   scope :sort_by_title, -> { order(title: :asc) }
 
+  def self.create_book_from_api(search)
+    book = GoogleApi.search(search)
+    byebug
+    @book = Book.find_or_create_by(title: book["volumeInfo"]["title"], author: book["volumeInfo"]["authors"], year_published: book["volumeInfo"]["publishedDate"], page_count: book["volumeInfo"]["pageCount"], description: book["volumeInfo"]["description"])
+  end
+
+  # def self.get_books_by_title(title)
+  #   search = GoogleApi.search().results
+  #   search["businesses"].map{|business| Restaurant.create_business_by_yelp_hash(business)}
+  # end
+
+ # potential attributes ["title", "subtitle", "authors", "publisher", "publishedDate", "description", "industryIdentifiers", "readingModes", "pageCount", "printType", "categories", "averageRating", "ratingsCount", "maturityRating", "allowAnonLogging", "contentVersion", "panelizationSummary", "imageLinks", "language", "previewLink", "infoLink", "canonicalVolumeLink"]
 
 
   # def self.sort_by_title 

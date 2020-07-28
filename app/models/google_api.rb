@@ -6,9 +6,7 @@ class GoogleApi
   attr_reader :results
 
   def self.search(search)
-    byebug
-    @results = HTTParty.get(BASE_URL + "#{search}" + API_PARTIAL_URL)
-    @results
+    @results = HTTParty.get(BASE_URL + "#{search}" + "&maxResults=1" + API_PARTIAL_URL)
   end
-  results["items"].first["volumeInfo"]["title"]
+  # results["items"].first["volumeInfo"]["title"]
 end
