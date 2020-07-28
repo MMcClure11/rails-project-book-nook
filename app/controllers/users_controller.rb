@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
   def show
-    require_login
+    authenticate
     @user = User.find(params[:id])
     authorize(@user)
   end

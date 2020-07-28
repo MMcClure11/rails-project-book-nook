@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-
   before_action :authenticate
 
   def index
