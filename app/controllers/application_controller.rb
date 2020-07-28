@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, :with => :rescue404
   rescue_from ActionController::RoutingError, :with => :rescue404
   rescue_from ActionController::InvalidAuthenticityToken, :with => :rescue403
-
+  rescue_from Errors::AuthorizationError, :with => :rescue403
   private
 
   def rescue404
@@ -43,10 +43,11 @@ class ApplicationController < ActionController::Base
   # end
 
   def authorize(resource)
-    rescue403 if !owns_resource?(resource)
+    raise Errors::AuthorizationError.new if !owns_resource?(resource)
+    # rescue403 if !owns_resource?(resource)
   end
 
-  # def authorize_user(user)
+  # def authorize_user(user) ###not currently using this
   #   authenticate
   #   redirect_to dashboard_path if user != current_user
   # end 
