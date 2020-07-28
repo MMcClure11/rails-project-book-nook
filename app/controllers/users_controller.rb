@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
+  before_action :authenticate, only: [:show]
   
-  def show
-    authenticate
+  def show #why does this nver render when a non-logged_in user tries to access a user show page?
     @user = User.find(params[:id])
-    authorize(@user)
+    authorize_user(@user)
   end
 
   def new
