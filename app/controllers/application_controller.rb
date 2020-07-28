@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :logged_in?
-  helper_method :owns_resource? #could move into helper folder
+  helper_method :owns_resource?
 
   rescue_from ActiveRecord::RecordNotFound, :with => :rescue404
   rescue_from ActionController::RoutingError, :with => :rescue404
@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
     render file: "#{Rails.root}/public/403.html", layout: false, status: 403
   end
 
-  def owns_resource?(resource) #could move into helper folder
+  def owns_resource?(resource)
     resource.user == current_user
   end
 
@@ -37,14 +37,8 @@ class ApplicationController < ActionController::Base
     redirect_to login_path if !logged_in?
   end
 
-  # def authorize(resource)
-  #   authenticate
-  #   redirect_to books_path if resource.user != current_user
-  # end
-
   def authorize(resource)
     raise Errors::AuthorizationError.new if !owns_resource?(resource)
-    # rescue403 if !owns_resource?(resource)
   end
 
   # def authorize_user(user) ###not currently using this
