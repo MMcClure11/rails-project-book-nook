@@ -90,7 +90,8 @@ class ReviewsController < ApplicationController
     
     book = Book.find(params[:review][:book_id])
     @review = Review.find(params[:id])
-    if @review.user_id == current_user.id
+    authorize(@review) #
+    # if @review.user_id == current_user.id
       @review.update(review_params)
       if @review.save
         redirect_to book_reviews_path(book)
@@ -98,10 +99,10 @@ class ReviewsController < ApplicationController
         @errors = @review.errors.full_messages
         render :edit
       end
-    else
-      flash[:notice] = "You may not edit another user's review."
-      redirect_to book_reviews_path(book)
-    end
+    # else
+    #   flash[:notice] = "You may not edit another user's review."
+    #   redirect_to book_reviews_path(book)
+    # end
   end
 
   def destroy
