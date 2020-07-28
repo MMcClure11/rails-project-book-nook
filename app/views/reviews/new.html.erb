@@ -1,6 +1,6 @@
 <h1>New Review for <%= @book.title %></h1>
 
-<%= render 'form' %>
+<%= render 'form', review: @review %>
 
 <%= link_to "Reviews", book_reviews_path(@book) %><br> 
 <%= link_to "All Books", books_path %>

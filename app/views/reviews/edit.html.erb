@@ -1,6 +1,6 @@
 <h1>Edit Your Review for: <%= @book.title%></h1>
 
-<%= render 'form' %>
+<%= render 'form', review: @review %>
 
 <%= button_to "Delete Review", book_review_path(@book, @review), method: :delete, data: { confirm: "Are you sure?"} %>
 

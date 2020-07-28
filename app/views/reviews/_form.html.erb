@@ -6,7 +6,7 @@
 </ul>
 <% end %>
 
-<%= form_for @review do |f| %>
+<%= form_with model: review, local: true do |f| %>
   <%= f.hidden_field :book_id %>
   <%= f.label :rating %>
   <%= f.number_field :rating %><br>
