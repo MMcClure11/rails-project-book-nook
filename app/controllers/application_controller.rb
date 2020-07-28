@@ -41,8 +41,8 @@ class ApplicationController < ActionController::Base
     redirect_to books_path if resource.user != current_user
   end
 
-  def authorize_user(user)
-    authenticate
-    redirect_to user_path(current_user) if user != current_user
-  end 
+  # def authorize_user(user)
+  #   authenticate
+  #   redirect_to dashboard_path if user != current_user
+  # end 
 end

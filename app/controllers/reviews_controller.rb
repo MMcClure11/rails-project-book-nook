@@ -118,6 +118,10 @@ class ReviewsController < ApplicationController
 
   private
 
+  def get_review
+    @review = Review.find(params[:id])
+  end
+
   def review_params
     params.require(:review).permit(:book_id, :rating, :content)
   end

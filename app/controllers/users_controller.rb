@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   
   def dashboard
     @user = current_user
-    authorize_user(@user)
   end
 
   def new
