@@ -6,7 +6,7 @@
   </ul>
 <% end %>
 
-<%= form_for @book do |f| %>
+<%= form_with model: book, local: true do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title, required: true%><br>
   <%= f.label :author %>
