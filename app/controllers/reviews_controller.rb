@@ -46,6 +46,8 @@ class ReviewsController < ApplicationController
         redirect_to books_path
       else
         @review = book.reviews.find_by(id: params[:id])
+        # authorize(@review)
+        # @book = @review.book
         if @review.nil?
           flash[:notice] = "Review not found." 
           redirect_to book_reviews_path(book)
@@ -90,8 +92,8 @@ class ReviewsController < ApplicationController
     
     book = Book.find(params[:review][:book_id])
     @review = Review.find(params[:id])
-    authorize(@review) #
-    # if @review.user_id == current_user.id
+    # authorize(@review) #
+    if @review.user_id == current_user.id
       @review.update(review_params)
       if @review.save
         redirect_to book_reviews_path(book)
@@ -99,10 +101,10 @@ class ReviewsController < ApplicationController
         @errors = @review.errors.full_messages
         render :edit
       end
-    # else
-    #   flash[:notice] = "You may not edit another user's review."
-    #   redirect_to book_reviews_path(book)
-    # end
+    else
+      flash[:notice] = "You may not edit another user's review."
+      redirect_to book_reviews_path(book)
+    end
   end
 
   def destroy

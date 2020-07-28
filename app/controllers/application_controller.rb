@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   rescue_from ActiveRecord::RecordNotFound, :with => :rescue404
   rescue_from ActionController::RoutingError, :with => :rescue404
+  rescue_from ActionController::InvalidAuthenticityToken, :with => :rescue403
 
   private
 
@@ -12,9 +13,9 @@ class ApplicationController < ActionController::Base
     render file: "#{Rails.root}/public/404.html", layout: false, status: 404
   end
 
-  # def rescue403
-  #   render file: "#{Rails.root}/public/403.html", layout: false, status: 403
-  # end
+  def rescue403
+    render file: "#{Rails.root}/public/403.html", layout: false, status: 403
+  end
 
   def owns_resource?(resource) #could move into helper folder
     resource.user == current_user
@@ -36,9 +37,13 @@ class ApplicationController < ActionController::Base
     redirect_to login_path if !logged_in?
   end
 
+  # def authorize(resource)
+  #   authenticate
+  #   redirect_to books_path if resource.user != current_user
+  # end
+
   def authorize(resource)
-    authenticate
-    redirect_to books_path if resource.user != current_user
+    rescue403 if !owns_resource?(resource)
   end
 
   # def authorize_user(user)
