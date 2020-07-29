@@ -19,6 +19,7 @@ class ListsController < ApplicationController
     if @list.save
       redirect_to @list
     else
+      @errors = @list.errors.full_messages
       render 'new'
     end
   end
@@ -33,6 +34,7 @@ class ListsController < ApplicationController
     if @list.save
       redirect_to @list
     else
+      @errors = @list.errors.full_messages
       render :edit
     end
   end
