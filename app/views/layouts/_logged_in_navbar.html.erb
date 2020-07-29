@@ -1,5 +1,6 @@
 <%= current_user.username %> |
 <%= link_to "Dashboard", dashboard_path %> | 
 <%= link_to "All Books", books_path %> | 
-<%= link_to "Create a New Book", new_book_path %> 
+<%= link_to "Create a New Book", new_book_path %> |
+<%= link_to "Your lists", lists_path %>
 <%= button_to "Logout", logout_path, method: :delete %>
