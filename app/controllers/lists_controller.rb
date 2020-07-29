@@ -7,6 +7,7 @@ class ListsController < ApplicationController
   end
 
   def show
+    authorize(@list)
   end
 
   def new
