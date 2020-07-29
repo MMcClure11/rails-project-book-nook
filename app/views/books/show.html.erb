@@ -5,6 +5,11 @@
 <h4>Description:</h4>
 <p><%= @book.description %></p>
 
+<%= form_with model: @book, local: true do |f| %>
+  <%= f.collection_select :list_ids, current_user.lists, :id, :name %>
+  <%= f.submit "Add to List"%>
+<% end %>
+
 <%= button_to "Edit Book", edit_book_path(@book), method: :get %>
 <%= button_to "Delete", book_path(@book), method: :delete, data: { confirm: "Are you sure?"} %>
 <%= link_to "Reviews", book_reviews_path(@book) %><br> 
