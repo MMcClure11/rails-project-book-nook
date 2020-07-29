@@ -2,6 +2,9 @@ class Book < ApplicationRecord
   has_many :reviews
   has_many :users, through: :reviews
 
+  has_many :book_lists
+  has_many :lists, through: :book_lists
+
   validates :title, presence: true
   validates :author, presence: true
 

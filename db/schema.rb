@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_23_181758) do
+ActiveRecord::Schema.define(version: 2020_07_29_152505) do
+
+  create_table "book_lists", force: :cascade do |t|
+    t.integer "book_id", null: false
+    t.integer "list_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_book_lists_on_book_id"
+    t.index ["list_id"], name: "index_book_lists_on_list_id"
+  end
 
   create_table "books", force: :cascade do |t|
     t.string "title"
@@ -20,6 +29,15 @@ ActiveRecord::Schema.define(version: 2020_07_23_181758) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "lists", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_lists_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -41,6 +59,8 @@ ActiveRecord::Schema.define(version: 2020_07_23_181758) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "book_lists", "books"
+  add_foreign_key "book_lists", "lists"
   add_foreign_key "reviews", "books"
   add_foreign_key "reviews", "users"
 end
