@@ -2,4 +2,6 @@
 
 <%= render 'form', list: @list %>
 
+<%= button_to "Delete List", list_path(@list), method: :delete, data: { confirm: "Are you sure?"} %>
+
 <%= link_to "Return to List", list_path(@list) %>
