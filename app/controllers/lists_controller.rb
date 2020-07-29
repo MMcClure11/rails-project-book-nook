@@ -13,10 +13,23 @@ class ListsController < ApplicationController
     @list = List.new
   end
 
+  def create
+    @list = current_user.lists.new(list_params)
+    if @list.save
+      redirect_to @list
+    else
+      render 'new'
+    end
+  end
+
   private
 
   def get_list
     @list = List.find(params[:id])
+  end
+
+  def list_params
+    params.require(:list).permit(:name, :description, book_ids: [])
   end
 
 end
