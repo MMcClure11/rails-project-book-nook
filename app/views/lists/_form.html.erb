@@ -1,0 +1,9 @@
+<%= form_with model: list, local: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.label :description %>
+  <%= f.text_area :description %><br>
+  <%= f.collection_check_boxes :book_ids, Book.all, :id, :title %>
+  
+  <%= f.submit %>
+<% end %>
