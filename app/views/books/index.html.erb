@@ -1,13 +1,8 @@
 <h1>Here are all the Books!</h1>
 
-<%# if flash[:notice] %>
-   <%#= flash[:notice] %>
- <%# end %>
-
 <ul>
   <% @books.sort_by_title.each do |book| %>
     <li><%= link_to book.title, book %></li>
   <% end %>
 </ul>
 
-<%= link_to "Create New Book", new_book_path %>
