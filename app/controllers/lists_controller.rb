@@ -23,9 +23,11 @@ class ListsController < ApplicationController
   end
 
   def edit
+    authorize(@list)
   end
 
   def update
+    authorize(@list)
     @list.update(list_params)
     if @list.save
       redirect_to @list

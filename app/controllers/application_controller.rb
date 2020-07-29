@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   # rescue_from ActiveRecord::RecordNotFound, :with => :rescue404
   # rescue_from ActionController::RoutingError, :with => :rescue404
   # rescue_from ActionController::InvalidAuthenticityToken, :with => :rescue403
-  # rescue_from Errors::AuthorizationError, :with => :rescue403
+  rescue_from Errors::AuthorizationError, :with => :rescue403
   private
 
   def rescue404
