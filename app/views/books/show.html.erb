@@ -5,12 +5,19 @@
 <h4>Description:</h4>
 <p><%= @book.description %></p>
 
-<%= form_with model: @book, local: true do |f| %>
-  <%= f.collection_select :list_ids, current_user.lists, :id, :name %>
-  <%= f.submit "Add to List"%>
-<% end %>
+<% if !@book.lists.present? %>
+  <%= form_with model: @book, local: true do |f| %>
+    <%= f.collection_select :list_ids, current_user.lists, :id, :name %>
+    <%= f.submit "Add to List"%>
+  <% end %>
+
+<% else %>
+
+  <% @book.lists.each do |list| %>
+    <p>Reading List: <%= link_to list.name, list %></p>
+  <% end %>
+ <% end %> 
 
 <%= button_to "Edit Book", edit_book_path(@book), method: :get %>
 <%= button_to "Delete", book_path(@book), method: :delete, data: { confirm: "Are you sure?"} %>
 <%= link_to "Reviews", book_reviews_path(@book) %><br> 
-<%= link_to "All Books", books_path %>
