@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
   before_action :authenticate
-  before_action :get_list, only: [:show]
+  before_action :get_list, only: [:show, :edit, :update, :delete]
 
   def index
     @lists = current_user.lists.all
@@ -20,6 +20,9 @@ class ListsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def edit
   end
 
   private
