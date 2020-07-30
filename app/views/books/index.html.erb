@@ -10,7 +10,12 @@
 <% end %>
 
 <% if @search %>
-    <%= link_to @book.title, book_path(@book) %>
+<ul>
+    <% @book.each do |book| %>
+      <li><%= link_to book.title, book_path(book) %></li>
+    <% end %>
+  </ul>
+    <%#= link_to @book.title, book_path(@book) %>
 <% else %>
 
 <ul>
