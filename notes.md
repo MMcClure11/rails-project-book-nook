@@ -1,7 +1,7 @@
-# Nested Routes
-- make sure you understand how they are working
-- clean up controller
-- verify protecting routes, user resource and redirect/show error pages appropriately
+x Nested Routes
+x make sure you understand how they are working
+x clean up controller
+x verify protecting routes, user resource and redirect/show error pages appropriately
 
 # Helpers
 - add helper to display errors from validations OR use flash??
