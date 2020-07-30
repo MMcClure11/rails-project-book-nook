@@ -27,3 +27,6 @@
 - note belongs to a book and a user
 - book has_many notes, has_many users through notes
 - user has_many notes, has_many books through notes
+
+# Auth
+- change so that email is unique, and sign up with name, display name on review

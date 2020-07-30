@@ -12,8 +12,8 @@
 <% end %> 
 
 <%= form_with model: @book, local: true do |f| %>
-  <%= f.collection_select :list_ids, current_user.lists, :id, :name %>
-  <%= f.submit "Add to List"%>
+  <%= f.collection_check_boxes :list_ids, current_user.lists, :id, :name %>
+  <%= f.submit "Update Lists"%>
 <% end %>
 
 
