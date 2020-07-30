@@ -46,17 +46,17 @@ class ReviewsController < ApplicationController
         redirect_to books_path
       else
         @review = book.reviews.find_by(id: params[:id])
-        authorize(@review)
-        @book = @review.book
-        # if @review.nil?
-        #   flash[:notice] = "Review not found." 
-        #   redirect_to book_reviews_path(book)
-        # elsif @review.user_id == current_user.id
-        #   @book = @review.book
-        # else
-        #   flash[:notice] = "You may not edit another user's review."
-        #   redirect_to "/books/#{params[:book_id]}/reviews/#{params[:id]}"
-        # end
+        #authorize(@review)
+        # @book = @review.book
+        if @review.nil?
+          flash[:notice] = "Review not found." 
+          redirect_to book_reviews_path(book)
+        elsif @review.user_id == current_user.id
+          @book = @review.book
+        else
+          flash[:notice] = "You may not edit another user's review."
+          redirect_to "/books/#{params[:book_id]}/reviews/#{params[:id]}"
+        end
       end
     # else
     #   @review = Review.find(params[:id])

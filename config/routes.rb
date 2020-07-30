@@ -20,4 +20,6 @@ Rails.application.routes.draw do
 
   get '/dashboard' => 'users#dashboard', as: :dashboard 
 
+  match '*path', :to => 'application#routing_error', via: [:get, :post]
+
 end
