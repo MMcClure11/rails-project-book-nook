@@ -9,9 +9,8 @@ class Book < ApplicationRecord
 
   def self.create_book_from_api(search)
     book = GoogleApi.search(search)
-    
-    byebug
-    @book = Book.find_or_create_by(title: book["title"], author: book["authors"], year_published: book["publishedDate"].to_i, page_count: book["pageCount"], description: book["description"])
+    @book = Book.find_or_create_by(title: book["title"], author: book["authors"].join(", "), year_published: book["publishedDate"].to_i, page_count: book["pageCount"], description: book["description"])
+  
   end
 
   # def self.get_books_by_title(title)
