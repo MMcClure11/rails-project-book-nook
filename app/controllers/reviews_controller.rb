@@ -58,12 +58,12 @@ class ReviewsController < ApplicationController
   end
 
   def update
-    book = Book.find(params[:review][:book_id])
+    @book = Book.find(params[:review][:book_id])
     @review = Review.find(params[:id])
     authorize(@review) 
     @review.update(review_params)
     if @review.save
-      redirect_to book_reviews_path(book)
+      redirect_to book_reviews_path(@book)
     else
       @errors = @review.errors.full_messages
       render :edit
