@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def rescue404
+    render file: "#{Rails.root}/public/404.html", layout: false, status: 404
+  end
+
   def rescue403
     render file: "#{Rails.root}/public/403.html", layout: false, status: 403
   end
