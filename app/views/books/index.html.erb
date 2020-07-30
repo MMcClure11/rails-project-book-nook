@@ -10,7 +10,7 @@
 <% end %>
 
 <% if @search %>
-  <%= link_to @book.title, book_path(@book) %>
+    <%= link_to @book.title, book_path(@book) %>
 <% else %>
 
 <ul>
@@ -20,5 +20,3 @@
 </ul>
 
 <% end %>
-
-<%= link_to "Create New Book", new_book_path %>

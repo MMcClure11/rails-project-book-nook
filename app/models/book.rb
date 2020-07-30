@@ -1,6 +1,6 @@
 class Book < ApplicationRecord
   has_many :reviews
-  has_many :users, through: :reviews
+  has_many :users, through: :reviews, dependent: :destroy
 
   validates :title, presence: true
   validates :author, presence: true
@@ -10,7 +10,6 @@ class Book < ApplicationRecord
   def self.create_book_from_api(search)
     book = GoogleApi.search(search)
     @book = Book.find_or_create_by(title: book["title"], author: book["authors"].join(", "), year_published: book["publishedDate"].to_i, page_count: book["pageCount"], description: book["description"])
-  
   end
 
   # def self.get_books_by_title(title)
