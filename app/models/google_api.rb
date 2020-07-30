@@ -7,6 +7,6 @@ class GoogleApi
 
   def self.search(search)
     @results = HTTParty.get(BASE_URL + "#{search}" + "&maxResults=1" + API_PARTIAL_URL)
+    @results["items"].first["volumeInfo"]
   end
-  # results["items"].first["volumeInfo"]["title"]
 end
