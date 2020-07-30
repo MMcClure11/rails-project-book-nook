@@ -58,57 +58,22 @@ class ReviewsController < ApplicationController
   end
 
   def update
-    #  if params[:review][:book_id]
-    #   @book = Book.find_by(id: params[:review][:book_id])
-    #   if @book.nil?
-    #     flash[:notice] = "Book not found."
-    #     redirect_to books_path
-    #   else
-    #     if params[:id]
-    #       @review = @book.reviews.find_by(id: params[:id])
-    #       if @review.nil?
-    #         flash[:notice] = "Review not found." 
-    #         redirect_to book_reviews_path(@book)
-    #       end
-    #     end
-    #   end
-    #  else
-    #   @book = Book.find(params[:review][:book_id])
-    #   @review = Review.find(params[:id])
-    #   @review.update(review_params)
-    #   if @review.save
-    #     redirect_to book_reviews_path(@book)
-    #   else
-    #     @errors = @review.errors.full_messages
-    #     render :edit
-    #   end
-    #  end
-    
     book = Book.find(params[:review][:book_id])
     @review = Review.find(params[:id])
-    # authorize(@review) #
-    if @review.user_id == current_user.id
-      @review.update(review_params)
-      if @review.save
-        redirect_to book_reviews_path(book)
-      else
-        @errors = @review.errors.full_messages
-        render :edit
-      end
-    else
-      flash[:notice] = "You may not edit another user's review."
+    authorize(@review) 
+    @review.update(review_params)
+    if @review.save
       redirect_to book_reviews_path(book)
+    else
+      @errors = @review.errors.full_messages
+      render :edit
     end
   end
 
   def destroy
     @book = Book.find(params[:book_id])
     review = Review.find(params[:id])
-    if current_user.id == review.user_id
-      review.destroy
-    else
-      flash[:notice] = "You may not delete another user's review."
-    end
+    authorize(review)
     redirect_to book_reviews_path(@book)
   end
 
