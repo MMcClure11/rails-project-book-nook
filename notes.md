@@ -17,7 +17,7 @@ x verify protecting routes, user resource and redirect/show error pages appropri
 
 # Book Model
 - separate auther and genre into their own models
-- user can edit or delete a book if it has no review or no lists
+x user can edit or delete a book if it has no review or no lists
 
 # Reviews
 - display average rating, use stars?

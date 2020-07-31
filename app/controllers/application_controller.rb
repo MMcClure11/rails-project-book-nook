@@ -3,10 +3,10 @@ class ApplicationController < ActionController::Base
   helper_method :logged_in?
   helper_method :owns_resource?
 
-  rescue_from ActiveRecord::RecordNotFound, :with => :rescue404
-  #rescue_from ActionController::RoutingError, :with => :rescue404
-  rescue_from ActionController::InvalidAuthenticityToken, :with => :rescue403
-  rescue_from Errors::AuthorizationError, :with => :rescue403
+  # rescue_from ActiveRecord::RecordNotFound, :with => :rescue404
+  # #rescue_from ActionController::RoutingError, :with => :rescue404
+  # rescue_from ActionController::InvalidAuthenticityToken, :with => :rescue403
+  # rescue_from Errors::AuthorizationError, :with => :rescue403
 
   def routing_error(error = 'Routing error', status = :not_found, exception=nil)
     render file: "#{Rails.root}/public/404.html", layout: false, status: 404
