@@ -12,7 +12,7 @@
 <% end %> 
 
 <%= form_with model: @book, local: true do |f| %>
-  <%= f.collection_check_boxes :lists, current_user.lists, :id, :name, :include_hidden => false  %>
+  <%= f.collection_check_boxes :list_ids, current_user.lists, :id, :name, :include_hidden => false  %>
   <%= f.submit "Update Lists"%>
 <% end %>
 
