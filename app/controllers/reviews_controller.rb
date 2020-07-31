@@ -74,6 +74,7 @@ class ReviewsController < ApplicationController
     @book = Book.find(params[:book_id])
     review = Review.find(params[:id])
     authorize(review)
+    review.destroy
     redirect_to book_reviews_path(@book)
   end
 
