@@ -12,4 +12,8 @@ class Book < ApplicationRecord
 
   scope :sort_by_title, -> { order(title: :asc) }
 
+  def can_edit_and_delete?
+    self.reviews.empty? && self.lists.empty?
+  end
+
 end
