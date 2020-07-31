@@ -2,6 +2,8 @@ x Nested Routes
 x make sure you understand how they are working
 x clean up controller
 x verify protecting routes, user resource and redirect/show error pages appropriately
+# Lists
+- adding a book to a list removes it from another user's list
 
 # Helpers
 - add helper to display errors from validations OR use flash??
@@ -11,17 +13,14 @@ x verify protecting routes, user resource and redirect/show error pages appropri
 
 # API
 - incorporate it so users don't have to manually create books?
-x books can only be edited or deleted if there are no reviews or lists associated with it
-
-# OR
 
 # Book Model
 - separate auther and genre into their own models
-x user can edit or delete a book if it has no review or no lists
+x books can only be edited or deleted if there are no reviews or lists associated with it
 
 # Reviews
 - display average rating, use stars?
-- user can only have one review per book
+x user can only have one review per book
 
 # Notes
 - note belongs to a book and a user
