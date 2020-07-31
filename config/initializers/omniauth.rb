@@ -3,7 +3,5 @@
 # end
 
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET']
-  #client key - identifies the github (facebook) application
-  #client secret - "the password for my github (facebook) application"
+  provider :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET']
 end

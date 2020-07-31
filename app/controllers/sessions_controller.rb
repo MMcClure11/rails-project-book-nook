@@ -1,7 +1,8 @@
 class SessionsController < ApplicationController
 
-  def fb_create
-    @user = User.find_or_create_by(username: auth["info"]["email"])
+  def git_create
+    byebug
+    @user = User.find_or_create_by(username: auth["info"]["nickname"])
     if !@user.password
       @user.password = SecureRandom.hex
     end

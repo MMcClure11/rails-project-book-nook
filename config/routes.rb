@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
   
-  get 'auth/facebook/callback', to: "sessions#fb_create"
+  get 'auth/github/callback', to: "sessions#git_create"
   
 
   resources :users, except: [:new, :show]
