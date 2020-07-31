@@ -2,8 +2,10 @@ x Nested Routes
 x make sure you understand how they are working
 x clean up controller
 x verify protecting routes, user resource and redirect/show error pages appropriately
+
 # Lists
-- adding a book to a list removes it from another user's list
+x adding a book to a list removes it from another user's list
+- solved the above, but now they are making duplicates of the book in a user's list
 
 # Helpers
 - add helper to display errors from validations OR use flash??

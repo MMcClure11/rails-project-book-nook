@@ -28,11 +28,10 @@ class BooksController < ApplicationController
   end
 
   def update
-    # raise params.inspect
     @book.update(book_params)
     if @book.save
-      if lists = List.find(params[:book][:list_ids])
-        @book.lists << lists
+      if list = List.find(params[:book][:list_ids])
+          @book.lists << list
       end
       flash[:success] = "Your book was successfully updated."
       redirect_to @book
