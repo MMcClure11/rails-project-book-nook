@@ -11,16 +11,7 @@
   <%= f.text_field :name, required: true %><br>
   <%= f.label :description %>
   <%= f.text_area :description, required: true %><br>
-  <%= f.collection_check_boxes :book_ids, Book.sort_by_title, :id, :title %><br>
-  
-  <% if false %>
-  <%= f.text_field :book_title, list: "books_autocomplete" %>
-  <datalist id="books_autocomplete">
-    <% Book.all.each do |book| %>
-      <option value="<%= book.title %>">
-     <% end %>
-  </datalist>  
-  <% end %>
+  <%= f.collection_check_boxes :book_ids, current_user.books.sort_by_title, :id, :title %><br>
   
   <%= f.submit %>
 <% end %>

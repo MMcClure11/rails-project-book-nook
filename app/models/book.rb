@@ -4,6 +4,7 @@ class Book < ApplicationRecord
 
   has_many :book_lists
   has_many :lists, through: :book_lists #, dependent: :destroy
+  has_many :users, through: :book_lists
 
   validates :title, presence: true
   validates :author, presence: true
