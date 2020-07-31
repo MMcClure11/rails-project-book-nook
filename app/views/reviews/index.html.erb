@@ -14,8 +14,8 @@
   <% end %>
 </ul>
 
-<%# if current_user.reviews.where(book_id: @book.id).empty? %>
+<% if current_user.reviews.where(book_id: @book.id).empty? %>
   <%= link_to "Add Review", new_book_review_path %><br>
-<%# end %>
+<% end %> 
 <%= link_to "View Book", book_path(@book) %><br>
 <%= link_to "All Books", books_path %>
