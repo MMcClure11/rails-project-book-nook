@@ -11,7 +11,7 @@ x verify protecting routes, user resource and redirect/show error pages appropri
 
 # API
 - incorporate it so users don't have to manually create books?
-- eliminate edit and delete functionality in that case
+x books can only be edited or deleted if there are no reviews or lists associated with it
 
 # OR
 
@@ -29,4 +29,5 @@ x user can edit or delete a book if it has no review or no lists
 - user has_many notes, has_many books through notes
 
 # Auth
-- change so that email is unique, and sign up with name, display name on review
+x change to github, used nickname as unique identifier
+- eliminate email attribute for user

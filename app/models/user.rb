@@ -9,5 +9,4 @@ class User < ApplicationRecord
   has_many :books, through: :book_lists
 
   validates :username, presence: true, uniqueness: true
-  #validates :email, presence: true, uniqueness: true
 end
