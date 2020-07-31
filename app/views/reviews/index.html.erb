@@ -1,5 +1,9 @@
 <h1>Reviews for <%= @book.title %></h1>
 
+<% if @book.reviews.empty? %>
+  <h3>There are no reviews yet for this book!</h3>
+<% end %>
+
 <ul>
   <% @reviews.each do |review| %>
     <li> Rating: <%= review.rating %> - <%= review.user.username %> says: <%= review.content %>
@@ -10,6 +14,8 @@
   <% end %>
 </ul>
 
-<%= link_to "Add Review", new_book_review_path %><br>
+<% if current_user.reviews.where(book_id: @book.id).empty? %>
+  <%= link_to "Add Review", new_book_review_path %><br>
+<% end %>
 <%= link_to "View Book", book_path(@book) %><br>
 <%= link_to "All Books", books_path %>
