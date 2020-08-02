@@ -51,7 +51,7 @@ class ListsController < ApplicationController
   end
 
   def list_params
-    params.require(:list).permit(:name, :description, book_ids: [])
+    params.require(:list).permit(:name, :description, :book_ids => [])
   end
 
 end
