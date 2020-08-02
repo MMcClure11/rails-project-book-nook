@@ -7,7 +7,6 @@ class List < ApplicationRecord
   validates :name, presence: true
   validates :name, uniqueness: { scope: :user, message: "of the list cannot be the same as any of your existing lists" }
   validates :description, presence: true
-  validates :book_id, uniqueness: true
 
   # def self.find_book_in_list(book)
   #   book.lists.each do |list|
