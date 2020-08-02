@@ -1,3 +1,22 @@
-<%= link_to "Log In", login_path %>
-<%= link_to "Sign Up", signup_path %>
-<%= link_to "Login with Github", '/auth/github' %>
+<nav class="navbar navbar-expand-sm nav-fill navbar-light bg-dark ">
+    <a class="navbar-brand text-warning" href="/">Book Nook</a>
+              <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarnav">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+   <div class="collapse navbar-collapse" id="navbarnav">
+      <ul class="nav nav-pills nav-fill">
+                  <li class="nav-item pr-4 pl-4">
+                    <%= link_to "Home", root_path, class: 'text-light nav-link'%>
+                  </li>
+                  <li class="nav-item pr-4 pl-4">
+                    <%= link_to "Log In", login_path, class: 'text-light nav-link' %>
+                  </li>
+                  <li class="nav-item pr-5 pl-5">
+                    <%= link_to "Sign Up", signup_path, class: 'text-light nav-link'%>
+                  </li>
+                  <li class="nav-item pr-5 pl-5">
+                    <%= link_to 'Log in with Github!', '/auth/github', class: 'text-light nav-link' %>
+                  </li>
+              </ul> 
+  </div>
+</nav>
