@@ -16,4 +16,6 @@ class Book < ApplicationRecord
     self.reviews.empty? && self.lists.empty?
   end
 
+  
+
 end
