@@ -1,9 +1,14 @@
  <nav class="navbar navbar-expand-sm nav-fill navbar-light bg-dark">
-  <%= current_user.username %> |
-  <%= link_to "Dashboard", dashboard_path, class: 'text-light nav-link' %> | 
+      <div class="container "> 
+            <a class="navbar-brand text-warning" href="#">Book Nook</a>
+              <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarnav">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+  <%= link_to "#{current_user.username}", dashboard_path, class: 'text-light nav-link' %> | 
   <%= link_to "All Books", books_path, class: 'text-light nav-link' %> | 
   <%= link_to "Create a New Book", new_book_path, class: 'text-light nav-link' %> |
   <%= link_to "Your lists", lists_path, class: 'text-light nav-link' %> |
   <%= link_to "Create a New List", new_list_path, class: 'text-light nav-link' %>
-  <%= button_to "Logout", logout_path, method: :delete, class: "btn btn-outline-warning" %>
+  <%= button_to "Logout", logout_path, method: :delete, class: "btn btn-outline-warning" %>  
+  </div>
   </nav>
