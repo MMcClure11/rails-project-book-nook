@@ -28,19 +28,22 @@ class BooksController < ApplicationController
   end
 
   def update
-    if new_lists = List.find(params[:book][:list_ids])
+    if List.find_by_id(params[:book][:list_ids]).present?
+      new_lists = List.find(params[:book][:list_ids])
         if !@book.lists.include?(new_lists)
           @book.lists << new_lists
           flash[:notice] = "Book was successfully added to your list."
+          redirect_to @book
         end
-    end
-    @book.update(book_params)
-    if @book.save
-      flash[:success] = "Your book was successfully updated."
-      redirect_to @book
     else
-      @errors = @book.errors.full_messages
-      render :edit
+      @book.update(book_params)
+      if @book.save
+        flash[:success] = "Your book was successfully updated."
+        redirect_to @book
+      else
+        @errors = @book.errors.full_messages
+        render :edit
+      end
     end
   end
 
