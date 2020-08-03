@@ -3,7 +3,12 @@ class BooksController < ApplicationController
   before_action :authenticate
 
   def index
-    @books = Book.all.page(params[:page])
+    @search = params[:search]
+    if @search
+        @book = Book.get_book_by_query(params[:search])
+    else
+      @books = Book.all.page(params[:page])
+    end
   end
 
   def show
