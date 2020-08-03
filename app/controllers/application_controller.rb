@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   helper_method :logged_in?
   helper_method :owns_resource?
 
+
   rescue_from ActiveRecord::RecordNotFound, :with => :rescue404
   rescue_from ActionController::RoutingError, :with => :rescue404
   rescue_from ActionController::InvalidAuthenticityToken, :with => :rescue403

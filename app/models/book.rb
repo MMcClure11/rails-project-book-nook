@@ -20,7 +20,11 @@ class Book < ApplicationRecord
 
   def self.get_book_by_query(query)
     search = GoogleApi.search(query)
-    search["items"].map { |item| Book.find_or_create_book_by_api_hash(item["volumeInfo"]) }
+    if search["totalItems"] == 0
+      rescue404 #what the fuck do i put here?
+    else
+      search["items"].map { |item| Book.find_or_create_book_by_api_hash(item["volumeInfo"]) }
+    end
   end
 
   #  def self.get_book_by_query(query)
