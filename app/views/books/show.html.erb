@@ -5,6 +5,12 @@
 <h4>Description:</h4>
 <p><%= @book.description %></p>
 
+<p> Book Nook Rating: <%= @book.reviews.average(:rating).round %></p>
+
+<% @book.reviews.each do |review| %>
+  <%= stars(review.rating) %> <br> <%= review.content %><br>Reviewed By: <%= review.user.username %><br>
+<% end %>
+
 <% @book.lists.each do |list| %>
   <% if list.user == current_user %>
     <p>Reading List: <%= link_to list.name, list %></p>
