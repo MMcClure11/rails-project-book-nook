@@ -12,14 +12,19 @@
 
   <div class="card border-dark mb-4" style="width: 25 rem;" style="display:flex">
     <p class="card-header text-center bg-dark text-warning"> Book Nook Rating: <%= @book.reviews.average(:rating).round %></p>
-
-<% @book.reviews.each do |review| %>
-  <%= stars(review.rating) %> <br> <%= review.content %><br>Reviewed By: <%= review.user.username %><br>
-<% end %>
+    <div class="card-body text-center">
+      <h6 class="card-title">Book Reviews for <%= @book.title %></h6>
+      <ul class="list-group list-group-flush">
+        <% @book.reviews.each do |review| %>
+          <li class="list-group-item"><%= stars(review.rating) %> <br> <%= review.content %><br>Reviewed By: <%= review.user.username %><br></li>
+        <% end %>
+    </div>
+    <div class="card-footer text-center bg-dark text-warning">
+      <div> <%= link_to "View all Reviews", book_reviews_path(@book), class: "text-warning" %>
+    </div>
+  </div>  
+  <% end %>
 </div>
-
-
-<% end %>
 
 <% @book.lists.each do |list| %>
   <% if list.user == current_user %>
@@ -37,4 +42,4 @@
 <%= button_to "Edit Book", edit_book_path(@book), method: :get %>
 <%= button_to "Delete", book_path(@book), method: :delete, data: { confirm: "Are you sure?"} %>
 <% end %>
-<%= link_to "Reviews", book_reviews_path(@book) %><br> 
+
