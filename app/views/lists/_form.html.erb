@@ -12,8 +12,7 @@
   <%= f.label :description %>
   <%= f.text_area :description, required: true %><br>
   <% if current_user.books %>
-    <%= f.collection_check_boxes :book_ids, Book.sort_by_title, :id, :title %><br>
-    <%#= f.collection_check_boxes :book_ids, list.books.sort_by_title, :id, :title %><br>
+    <%= f.collection_check_boxes :book_ids, list.books.sort_by_title, :id, :title %><br>
   <% end %>
   
   <%= f.submit %>
