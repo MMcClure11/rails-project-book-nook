@@ -14,11 +14,17 @@
             <% end %>
           <% end %> 
 
-<%#= form_with model: @book, local: true do |f| %>
-  <%#= f.collection_check_boxes :list_ids, current_user.lists, :id, :name, :include_hidden => false  %>
+<%= form_with model: @book, local: true do |f| %>
+<% lists = [] %>
+  <% current_user.lists.each do |list| %>
+    <% lists << list if !list.books.include?(@book) %>
+  <% end %>
+  <%= f.collection_check_boxes :list_ids, lists, :id, :name, :include_hidden => false  %>
   <%#= f.collection_select :list_ids, current_user.lists, :id, :name, :include_hidden => false  %>
-  <%#= f.submit "Update Lists"%>
-<%# end %>
+  <% if !lists.empty? %>
+    <%= f.submit "Add Book to List(s)"%>
+  <% end %>
+<% end %>
 
 <% if @book.can_edit_and_delete? %>
 <%= button_to "Edit Book", edit_book_path(@book), method: :get, class: "btn btn-outline-info m-1" %>

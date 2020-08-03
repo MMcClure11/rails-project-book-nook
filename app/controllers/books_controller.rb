@@ -28,26 +28,14 @@ class BooksController < ApplicationController
   end
 
   def update
+    if new_lists = List.find(params[:book][:list_ids])
+        if !@book.lists.include?(new_lists)
+          @book.lists << new_lists
+          flash[:notice] = "Book was successfully added to your list."
+        end
+    end
     @book.update(book_params)
     if @book.save
-      
-      # @book.lists.each do |list|
-      #   if @book.lists.include?(list)
-      #     flash[:notice] = "Book is already in #{list.name}"
-      #   else
-      #     @book.lists << list
-      #   end
-      # end
-      # @book.lists = []
-      # @book.lists << List.find(params[:book][:list_ids])
-      # if new_lists = List.find(params[:book][:list_ids])
-      #     if !@book.lists.include?(new_lists)
-      #       @book.lists << new_lists
-      #     else
-      #       flash[:notice] = "This book is already in that list"
-      #       redirect_to @book
-      #     end
-      # end
       flash[:success] = "Your book was successfully updated."
       redirect_to @book
     else
