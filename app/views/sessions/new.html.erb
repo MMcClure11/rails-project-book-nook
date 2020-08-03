@@ -1,10 +1,16 @@
-<h1>Login</h1>
+<h1 class="display-4 text-center text-dark">Login</h1>
 
-<%= form_tag("/login") do %>
-  <%= label_tag :username %>
-  <%= text_field_tag :username %>
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
+<div class="row justify-content-center">
+  <%= form_tag("/login") do %>
+    <div class="form-group" style="width :25em;">
+    <div class="text-center"><%= label_tag :username %></div>
+    <%= text_field_tag :username, nil, class: 'form-control' %>
+    </div>
+    <div class="form-group" style="width :25em;">
+    <div class="text-center"><%= label_tag :password %></div>
+    <%= password_field_tag :password, nil, class: 'form-control' %>
+    </div>
 
-  <%= submit_tag "Login" %>
-<% end %>
+    <div class="row justify-content-center"><%= submit_tag "Login", class: 'btn btn-info'  %></div>
+  <% end %>
+</div>
