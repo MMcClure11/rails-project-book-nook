@@ -60,3 +60,7 @@ gem "omniauth-facebook", "~> 6.0"
 gem "dotenv-rails", "~> 2.7"
 
 gem "omniauth-github", "~> 1.4"
+
+gem "kaminari", "~> 1.2"
+
+gem "kaminari-bootstrap", "~> 3.0"
