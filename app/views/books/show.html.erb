@@ -15,7 +15,7 @@
     <div class="card-body text-center">
       <h6 class="card-title">Book Reviews for <%= @book.title %></h6>
       <ul class="list-group list-group-flush">
-        <% @book.reviews.each do |review| %>
+        <% @book.reviews.recent(5).each do |review| %>
           <li class="list-group-item"><%= stars(review.rating) %> <br> <%= review.content %><br>Reviewed By: <%= review.user.username %><br></li>
         <% end %>
     </div>

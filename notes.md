@@ -6,6 +6,7 @@ x verify protecting routes, user resource and redirect/show error pages appropri
 # Lists
 x adding a book to a list removes it from another user's list
 - solved the above, but now they are making duplicates of the book in a user's list
+X semi fix, only add books on list new and edit by using collection_select
 
 # Helpers
 - add helper to display errors from validations OR use flash??
@@ -21,7 +22,7 @@ x adding a book to a list removes it from another user's list
 x books can only be edited or deleted if there are no reviews or lists associated with it
 
 # Reviews
-- display average rating, use stars?
+x display average rating, use stars?
 x user can only have one review per book
 
 # Notes
