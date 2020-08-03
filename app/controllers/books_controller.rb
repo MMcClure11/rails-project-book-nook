@@ -38,8 +38,8 @@ class BooksController < ApplicationController
       #     @book.lists << list
       #   end
       # end
-      @book.lists = []
-      @book.lists << List.find(params[:book][:list_ids])
+      # @book.lists = []
+      # @book.lists << List.find(params[:book][:list_ids])
       # if new_lists = List.find(params[:book][:list_ids])
       #     if !@book.lists.include?(new_lists)
       #       @book.lists << new_lists
