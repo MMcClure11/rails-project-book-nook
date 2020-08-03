@@ -16,7 +16,7 @@
       <h6 class="card-title">Book Reviews for <%= @book.title %></h6>
       <ul class="list-group list-group-flush">
         <% @book.reviews.recent(5).each do |review| %>
-          <li class="list-group-item"><%= stars(review.rating) %> <br> <%= review.content %><br>Reviewed By: <%= review.user.username %><br></li>
+          <li class="list-group-item"><%= stars(review.rating) %> <br> <%= review.content %><br>Reviewed By: <%= review.user.username %><br><%= display_created_at(review.created_at)%><br></li>
         <% end %>
     </div>
     <div class="card-footer text-center bg-dark text-warning">
