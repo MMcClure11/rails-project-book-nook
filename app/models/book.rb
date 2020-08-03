@@ -22,10 +22,11 @@ class Book < ApplicationRecord
 
   def self.get_book_by_query(query)
     search = GoogleApi.search(query)
-    if search["totalItems"] == 0
-      rescue404 #what the fuck do i put here?
+    if search["totalItems"] == 0 #search["items"].nil? 
+      books = []
     else
-      search["items"].map { |item| Book.find_or_create_book_by_api_hash(item["volumeInfo"]) }
+      books = search["items"].map { |item| Book.find_or_create_book_by_api_hash(item["volumeInfo"]) }
+      #Book.where(id: books.pluck(:id))
     end
   end
 
