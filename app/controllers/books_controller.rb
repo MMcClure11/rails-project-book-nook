@@ -5,9 +5,9 @@ class BooksController < ApplicationController
   def index
     @search = params[:search]
     if @search
-        @book = Book.get_book_by_query(params[:search])
+        @books = Book.get_book_by_query(params[:search])
     else
-      @books = Book.all.page(params[:page])
+      @books = Book.all#.page(params[:page])
     end
   end
 

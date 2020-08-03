@@ -16,7 +16,7 @@
       </tr>
   </thead>
 
-  <% @books.sort_by_title.each do |book| %>
+  <% @books.each do |book| %>
       <tbody>
         <tr>
           <td class="pl-5"><%= link_to book.title, book, class: 'text-info' %></td>
@@ -51,7 +51,7 @@
 
 <% end %>
 
-<%= paginate(@books) %>
+<%#= paginate(@books) %>
 
 <% if false %>
 <% if @search %>
