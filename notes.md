@@ -15,8 +15,11 @@ X semi fix, only add books on list new and edit by using collection_select
 # CSS
 - make it peerrrrty
 
+# Pagination
+x pagination gem
+
 # API
-- incorporate it so users don't have to manually create books?
+X incorporate it so users don't have to manually create books?
 
 # Book Model
 - separate auther and genre into their own models
