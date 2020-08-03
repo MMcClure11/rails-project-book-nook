@@ -64,3 +64,5 @@ gem "omniauth-github", "~> 1.4"
 gem "kaminari", "~> 1.2"
 
 gem "kaminari-bootstrap", "~> 3.0"
+
+gem "httparty", "~> 0.18.1"
