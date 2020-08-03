@@ -54,19 +54,7 @@
 
 <% end %>
 
-<%#= paginate(@books) %>
-
-<% if false %>
-<% if @search %>
-  <% if @search == "Sorry, not found." %>
-  <p>Search not found</p>
-  <% else %>
-<ul>
-    <% @book.each do |book| %>
-      <li><%= link_to book.title, book_path(book) %></li>
-    <% end %>
-  </ul>
-  <% end %>
-  <% end %>
-
+<% if @books.present? %>
+  <%= paginate(@books) %>
 <% end %>
+
