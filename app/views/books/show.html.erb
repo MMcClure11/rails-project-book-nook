@@ -5,10 +5,20 @@
 <h4>Description:</h4>
 <p><%= @book.description %></p>
 
-<p> Book Nook Rating: <%= @book.reviews.average(:rating).round %></p>
+<div class="p-4 item-hl">
+  <% if !@book.reviews.present? %>
+    <p class="text-center">Be the first to review this book!</p>
+  <% else %>
+
+  <div class="card border-dark mb-4" style="width: 25 rem;" style="display:flex">
+    <p class="card-header text-center bg-dark text-warning"> Book Nook Rating: <%= @book.reviews.average(:rating).round %></p>
 
 <% @book.reviews.each do |review| %>
   <%= stars(review.rating) %> <br> <%= review.content %><br>Reviewed By: <%= review.user.username %><br>
+<% end %>
+</div>
+
+
 <% end %>
 
 <% @book.lists.each do |list| %>
