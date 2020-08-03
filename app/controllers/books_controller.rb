@@ -3,7 +3,6 @@ class BooksController < ApplicationController
   before_action :authenticate
 
   def index
-    #@books = Book.all
     @books = Book.all.page(params[:page])
   end
 
