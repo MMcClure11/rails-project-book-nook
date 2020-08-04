@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
       @user.password = SecureRandom.hex
     end
     @user.save
-    session[:user_id] = @user.id
+    log_in(@user)
     redirect_to dashboard_path
   end
 
@@ -14,7 +14,6 @@ class SessionsController < ApplicationController
     @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
       log_in(@user)
-      flash[:success] = "Welcome, #{@user.username}"
       redirect_to dashboard_path
     else
       flash[:danger] = "Invalid Credentials Given"
