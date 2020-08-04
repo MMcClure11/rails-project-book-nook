@@ -23,7 +23,7 @@ x pagination gem
 # API
 X incorporate it so users don't have to manually create books?
 - remove option to manually create a book? manually made books do not appear in search
-- "fledg" returns an error because of .join on author nil class...fix?
+x "fledg" returns an error because of .join on author nil class...fix? removed .join from create method, moved to books helper and gsub authors
 
 # Book Model
 - separate auther and genre into their own models
