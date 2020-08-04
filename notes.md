@@ -25,6 +25,7 @@
 - [] remove option to manually create a book? manually made books do not appear in search
   - [] alternatively, have search work for all books in database and move current search to create a book??
 - [x] "fledg" returns an error because of .join on author nil class...fix? removed .join from create method, moved to books helper and gsub authors
+- [] ask Nicky, sometimes when i search a book it doesn't always find it...why would that be? example "The Name of the Wind", well it finds it, but then it rollsback the transaction
 
 # Book Model
 - [] add genre as a model
@@ -42,5 +43,4 @@
 
 ## Auth
 - [x] change to github, used nickname as unique identifier
-- eliminate email attribute for user
 
