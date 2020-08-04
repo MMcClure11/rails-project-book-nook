@@ -19,6 +19,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def most_reviews
+    @users = User.most_reviews
+  end
+
   private
 
   def user_params

@@ -1,0 +1,7 @@
+<h1>Top Reviewers of Book Nook</h1>
+
+<ol>
+  <% @users.each do |user| %>
+    <li><%= "#{user.username} - #{user.reviews.count} Review(s)" %></li>
+  <% end %>
+</ol>
