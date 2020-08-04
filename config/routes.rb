@@ -19,11 +19,11 @@ Rails.application.routes.draw do
   get 'auth/github/callback', to: "sessions#git_create"
   
 
-  resources :users, except: [:new, :show]
+  resources :users, except: [:new, :show, :index]
 
 
   get '/dashboard' => 'users#dashboard', as: :dashboard 
 
-  #match '*path', :to => 'application#routing_error', via: [:get, :post]
+  match '*path', :to => 'application#routing_error', via: [:get, :post]
 
 end
