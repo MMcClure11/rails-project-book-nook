@@ -27,8 +27,9 @@
 - [x] "fledg" returns an error because of .join on author nil class...fix? removed .join from create method, moved to books helper and gsub authors
 
 # Book Model
-- [] separate auther and genre into their own models
-[x] books can only be edited or deleted if there are no reviews or lists associated with it
+- [] add genre as a model
+- [x] books can only be edited or deleted if there are no reviews or lists associated with it
+- [] index after search add delete button 
 
 # Reviews
 - [x] display average rating, use stars?
