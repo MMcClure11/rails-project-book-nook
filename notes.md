@@ -17,9 +17,12 @@ X semi fix, only add books on list new and edit by using collection_select
 
 # Pagination
 x pagination gem
+- not quite working with search returning an empty array
 
 # API
 X incorporate it so users don't have to manually create books?
+- remove option to manually create a book? manually made books do not appear in search
+- "fledg" returns an error because of .join on author nil class...fix?
 
 # Book Model
 - separate auther and genre into their own models

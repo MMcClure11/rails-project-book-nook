@@ -22,7 +22,6 @@ class Book < ApplicationRecord
       year_published: book["publishedDate"].to_i, 
       page_count: book["pageCount"], 
       description: book["description"])
-    #self.find_or_create_by(title: book["title"], author: book["authors"].join(", "), year_published: book["publishedDate"].to_i, page_count: book["pageCount"], description: book["description"])
   end
 
   def self.get_book_by_query(query)
