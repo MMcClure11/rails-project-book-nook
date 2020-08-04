@@ -17,11 +17,17 @@ class Book < ApplicationRecord
   end
 
   def self.find_or_create_book_by_api_hash(book)
-    self.find_or_create_by(title: book["title"], author: book["authors"].join(", "), year_published: book["publishedDate"].to_i, page_count: book["pageCount"], description: book["description"])
+    self.find_or_create_by(title: book["title"], 
+      author: book["authors"].join(", "), 
+      year_published: book["publishedDate"].to_i, 
+      page_count: book["pageCount"], 
+      description: book["description"])
+    #self.find_or_create_by(title: book["title"], author: book["authors"].join(", "), year_published: book["publishedDate"].to_i, page_count: book["pageCount"], description: book["description"])
   end
 
   def self.get_book_by_query(query)
     search = GoogleApi.search(query)
+
     if search["totalItems"] == 0 
       books = []
     else
