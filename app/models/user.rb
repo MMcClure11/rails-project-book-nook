@@ -9,4 +9,6 @@ class User < ApplicationRecord
   has_many :books, through: :book_lists
 
   validates :username, presence: true, uniqueness: true
+
+  scope :most_reviews, -> {joins(:reviews).group("users.id").order("count(reviews.id) DESC").limit(5)}
 end

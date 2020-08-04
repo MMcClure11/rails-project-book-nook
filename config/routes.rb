@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :reviews, only: [:create, :update]
 
+  get '/users/most_reviews' => 'users#most_reviews'
+
   get '/signup' => 'users#new', as: :signup
   get '/login' => 'sessions#new', as: :login
   post '/login' => 'sessions#create'
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
   
 
   resources :users, except: [:new, :show]
+
 
   get '/dashboard' => 'users#dashboard', as: :dashboard 
 
