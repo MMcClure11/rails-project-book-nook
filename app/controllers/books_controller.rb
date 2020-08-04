@@ -35,6 +35,9 @@ class BooksController < ApplicationController
   def update
     if List.find_by_id(params[:book][:list_ids]).present?
       new_lists = List.find(params[:book][:list_ids])
+      new_lists.each do |list|
+        authorize(list)
+      end
         if !@book.lists.include?(new_lists)
           @book.lists << new_lists
           flash[:notice] = "Book was successfully added to your list."
