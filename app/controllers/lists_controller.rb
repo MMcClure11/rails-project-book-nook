@@ -17,7 +17,6 @@ class ListsController < ApplicationController
   def create
     @list = current_user.lists.new(list_params)
     if @list.save
-      
       redirect_to @list
     else
       @errors = @list.errors.full_messages
@@ -41,6 +40,7 @@ class ListsController < ApplicationController
   end
 
   def destroy
+    authorize(@list)
     @list.destroy
     redirect_to lists_path
   end

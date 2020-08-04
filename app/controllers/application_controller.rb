@@ -46,8 +46,14 @@ class ApplicationController < ActionController::Base
     raise Errors::AuthorizationError.new if !owns_resource?(resource)
   end
 
-  # def authorize_user(user) ###not currently using this
-  #   authenticate
-  #   redirect_to dashboard_path if user != current_user
-  # end 
+  def authorize_resources(resources)
+    resources.each do |resource|
+      authorize(resource)
+    end
+  end
+
+  def already_written_review?
+
+  end
+
 end
