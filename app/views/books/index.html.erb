@@ -23,7 +23,7 @@
       <tbody>
         <tr>
           <td class="pl-5"><%= link_to book.title, book, class: 'text-info' %></td>
-          <td class="pr-5"><%= book.author %></td>
+          <td class="pr-5"><%= display_author(book.author) %></td>
           <td class="pl-5"><%= book.year_published %></td>
         </tr>
       </tbody>
@@ -45,7 +45,7 @@
       <tbody>
         <tr>
           <td class="pl-5"><%= link_to book.title, book, class: 'text-info' %></td>
-          <td class="pr-5"><%= book.author %></td>
+          <td class="pr-5"><%= display_author(book.author) %></td>
           <td class="pl-5"><%= book.year_published %></td>
         </tr>
       </tbody>

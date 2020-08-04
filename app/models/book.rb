@@ -18,7 +18,7 @@ class Book < ApplicationRecord
 
   def self.find_or_create_book_by_api_hash(book)
     self.find_or_create_by(title: book["title"], 
-      author: book["authors"].join(", "), 
+      author: book["authors"], 
       year_published: book["publishedDate"].to_i, 
       page_count: book["pageCount"], 
       description: book["description"])
