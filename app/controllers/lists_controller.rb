@@ -15,7 +15,6 @@ class ListsController < ApplicationController
   end
 
   def create
-    byebug
     @list = current_user.lists.new(list_params)
     if @list.save
       

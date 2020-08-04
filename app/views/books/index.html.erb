@@ -2,8 +2,8 @@
 
 
  <%= form_tag(books_path, method: :get) do %>
-  <%= text_field_tag :search, nil, placeholder: 'Search by Title' %>
-  <%= submit_tag ("Search") %>
+  <p class="text-center"><%= text_field_tag :search, nil, placeholder: 'Search by Title' %>
+  <%= submit_tag ("Search") %></p>
 <% end %>
 
 <% if @search %>
