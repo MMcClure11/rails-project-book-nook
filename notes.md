@@ -17,10 +17,10 @@
 - [] make it peerrrrty
     - [ ] create a book
     - [ ] edit a book
-    - [ ] your lists
+    - [X] your lists
     - [X] lists show
-    - [ ] create list
-    - [ ] edit lists
+    - [X] create list
+    - [X] edit lists
     - [ ] most reviews
     - [ ] flash messages
 
