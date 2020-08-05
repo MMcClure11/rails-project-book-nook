@@ -24,7 +24,6 @@ class BooksController < ApplicationController
       flash[:success] = "Your book was successfully created."
       redirect_to @book
     else
-      @errors = @book.errors.full_messages
       render :new
     end
   end
@@ -45,7 +44,6 @@ class BooksController < ApplicationController
         flash[:success] = "Your book was successfully updated."
         redirect_to @book
       else
-        @errors = @book.errors.full_messages
         render :edit
       end
     end
