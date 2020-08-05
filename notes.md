@@ -23,9 +23,10 @@
     - [X] edit lists
     - [ ] most reviews
     - [X] all reviews
-    - [ ] create review
-    - [ ] edit review 
+    - [x] create review
+    - [x] edit review 
     - [ ] flash messages
+    - [ ] error messages
 
 # Pagination
 - [x] pagination gem
