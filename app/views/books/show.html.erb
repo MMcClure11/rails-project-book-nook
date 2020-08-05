@@ -15,20 +15,20 @@
     <% end %>
   <% end %> 
 
-<%= form_with model: @book, local: true do |f| %>
-  <%= f.collection_check_boxes :list_ids, current_user.can_add_book_to_list?(@book), :id, :name, :include_hidden => false  %>
-  <% if !current_user.can_add_book_to_list?(@book).empty? %>
-    <%= f.submit "Add Book to List(s)"%>
+  <%= form_with model: @book, local: true do |f| %>
+    <%= f.collection_check_boxes :list_ids, current_user.can_add_book_to_list?(@book), :id, :name, :include_hidden => false  %>
+    <% if !current_user.can_add_book_to_list?(@book).empty? %>
+      <%= f.submit "Add Book to List(s)"%>
+    <% end %>
   <% end %>
-<% end %>
 
-<% if @book.can_edit_and_delete? %>
-  <%= button_to "Edit Book", edit_book_path(@book), method: :get, class: "btn btn-outline-info m-1" %>
-  <%= button_to "Delete", book_path(@book), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-outline-info m-1" %>
-<% end %>
-      
-        </div>
-      </div>
+  <% if @book.can_edit_and_delete? %>
+    <%= button_to "Edit Book", edit_book_path(@book), method: :get, class: "btn btn-outline-info m-1" %>
+    <%= button_to "Delete", book_path(@book), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-outline-info m-1" %>
+  <% end %>
+  </div>
+  </div>
+</div>
 
 <div class="p-4 item-hl">
   <% if !@book.reviews.present? %>
@@ -45,7 +45,7 @@
         <% end %>
     </div>
     <div class="card-footer text-center bg-dark text-warning">
-      <div> <%= link_to "View all Reviews", book_reviews_path(@book), class: "text-info" %>
+      <div> <%= link_to "View all Reviews", book_reviews_path(@book), class: "text-info" %></div>
     </div>
   </div>  
   <% end %>

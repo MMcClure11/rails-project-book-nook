@@ -1,5 +1,4 @@
 <h1 class= "display-4 text-dark text-center">Reviews for: <%= link_to @book.title, book_path(@book), class: 'text-info'%> by <%= display_author(@book.author) %></h1>
-<div class="d-flex justify-content-center flex-wrap row-hl">
 
 
 <% if @book.reviews.empty? %>
@@ -7,22 +6,22 @@
 <% end %>
 
 
+<div class="d-flex justify-content-center flex-wrap row-hl">
   <% @reviews.each do |review| %>
-  <br>
+
   <div class="card mb-4 border-dark mr-4" style="width: 25rem;" style="display:flex"> 
     <p class="card-header text-center bg-dark"><%= stars(review.rating) %></p>
     <div class="card-body text-center">
       <p class="lead"><%= review.content %></p>
     <% if owns_resource?(review)%>
-      <%= link_to "Edit", edit_book_review_path(@book, review) if review.book%>
+      <span class="btn btn-outline-info"><%= link_to "Edit", edit_book_review_path(@book, review) if review.book%></span>
     <% end %>
     </div>
     <div class="card-footer text-center bg-dark text-info">
       <div>Reviewed by: <%= review.user.username %> <br> <%= display_created_at(review.created_at) %> </div>
     </div>
-  <% end %>
   </div>
-
+  <% end %>
 </div>
 
 <% if current_user.reviews.where(book_id: @book.id).empty? %>
