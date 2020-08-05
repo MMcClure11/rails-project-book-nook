@@ -1,10 +1,18 @@
 <%= render 'errors/error', model: @review %>
 
+<div class="row justify-content-center">
 <%= form_with model: review, local: true do |f| %>
+<div class="text-center form-group" style="width: 25rem;">
   <%= f.hidden_field :book_id %>
   <%= f.label :rating %>
-  <%= f.number_field :rating, :in => 1..10, :required => true  %><br>
+  <%= f.number_field :rating, :in => 1..10, :required => true, class: "form-control"  %><br>
+</div>
+<div class="text-center form-group" style="width: 25rem;">
   <%= f.label :content %>
-  <%= f.text_area :content, :required => true %><br>
-  <%= f.submit %>
+  <%= f.text_area :content, :required => true, class: "form-control" %>
+</div>
+<div class="text-center">
+  <%= f.submit value="Submit", class: "btn btn-outline-info" %>
+</div>
 <% end %>
+</div>
