@@ -22,6 +22,7 @@
     - [ ] create list
     - [ ] edit lists
     - [ ] most reviews
+    - [ ] flash messages
 
 # Pagination
 - [x] pagination gem
@@ -37,7 +38,7 @@
 # Book Model
 - [ ] add genre as a model
 - [x] books can only be edited or deleted if there are no reviews or lists associated with it
-- [ ] index after search add delete button 
+- [X] index after search add delete button 
 - [ ] add additional attributes that I can easily get from API (image)
 
 # Reviews

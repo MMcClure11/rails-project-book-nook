@@ -1,7 +1,9 @@
-<h1>Your Lists</h1>
+<h1 class='display-4 text-dark text-center m-3'><%= current_user.username %>'s Lists</h1>
 
-<ul>
+<ul class="list-unstyled text-center">
   <% @lists.each do |list| %>
-    <li><%= link_to list.name, list_path(list) %></li>
+    <h4 class= 'text-dark pb-3'><%= link_to list.name, list_path(list), class: 'text-dark' %><br></h4>
   <% end %>
 </ul>
+
+<p class='text-center'><%= link_to "Make a New list", new_list_path, class: "btn btn-outline-info"%></p>
