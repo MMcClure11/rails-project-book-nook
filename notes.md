@@ -7,7 +7,7 @@
 - [x] adding a book to a list removes it from another user's list
 - [X] solved the above, but now they are making duplicates of the book in a user's list
 - [X] semi fix, only add books on list new and edit by using collection_select
-- [] refactor to scope or class method or helper method?
+- [X] refactor to scope or class method or helper method?
 - [x] protect lists from book show page
 
 # Partials

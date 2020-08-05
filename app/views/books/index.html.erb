@@ -2,7 +2,12 @@
 
 
  <%= form_tag(books_path, method: :get) do %>
-  <p class="text-center"><%= text_field_tag :search, nil, placeholder: 'Search by Title' %>
+  <p class="text-center"><%= text_field_tag :search, nil, placeholder: 'GoogleBooks by Title' %>
+  <%= submit_tag ("Search") %></p>
+<% end %>
+
+<%= form_tag(books_path, method: :get) do %>
+  <p class="text-center"><%= text_field_tag :query, nil, placeholder: 'Book Nook by Title' %>
   <%= submit_tag ("Search") %></p>
 <% end %>
 

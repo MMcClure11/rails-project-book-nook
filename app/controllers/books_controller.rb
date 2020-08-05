@@ -3,9 +3,10 @@ class BooksController < ApplicationController
   before_action :authenticate
 
   def index
-    @search = params[:search]
-    if @search
+    if @search = params[:search]
         @books = Book.get_book_by_query(params[:search])#.page(params[:page])
+    elsif @search = params[:query]
+      @books = Book.where("title LIKE ?", "%#{params[:query]}%")
     else
       @books = Book.all#.page(params[:page])
     end
