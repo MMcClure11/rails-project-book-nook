@@ -1,16 +1,16 @@
 <%= render 'errors/error', model: @list %>
 
-
+<div class="row justify-content-center">
     <%= form_with model: list, local: true do |f| %>
-      <div class="text-center">
+      <div class="text-center form-group" style="width: 50rem;">
       <%= f.label :name %>
-      <%= f.text_field :name, required: true %>
+      <%= f.text_field :name, required: true, class: "form-control" %>
       </div>
-      <div class="text-center">
+      <div class="text-center form-group" style="width: 50rem;">
       <%= f.label :description %>
-      <%= f.text_area :description, required: true %>
+      <%= f.text_area :description, required: true, class: "form-control" %>
       </div>
-      <div class="text-center">
+      <div class="text-center ">
       <% if current_user.books %>
         <%= f.collection_check_boxes :book_ids, list.books.sort_by_title, :id, :title do |box|%>
           <div class="col pl-5"><%= box.check_box %><%= box.label { box.text } %></div>
@@ -18,7 +18,7 @@
       <% end %>
      </div>
     <div class="text-center">
-    <%= f.submit "Submit", class: "btn btn-primary" %>
+      <%= f.submit value="Submit", class: "btn btn-outline-info"  %>
     </div>
     <% end %>
-   
+</div>
