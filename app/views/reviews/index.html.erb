@@ -1,4 +1,4 @@
-<h1 class= "display-4 text-dark text-center">Reviews for: <%= link_to @book.title, book_path(@book), class: 'text-info'%> by <%= @book.author %></h1>
+<h1 class= "display-4 text-dark text-center">Reviews for: <%= link_to @book.title, book_path(@book), class: 'text-info'%> by <%= display_author(@book.author) %></h1>
 <div class="d-flex justify-content-center flex-wrap row-hl">
 
 
