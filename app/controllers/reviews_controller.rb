@@ -41,7 +41,6 @@ class ReviewsController < ApplicationController
       if @review.save
         redirect_to book_reviews_path(@book)
       else
-        @errors = @review.errors.full_messages
         render :new
       end
     end
@@ -71,7 +70,6 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to book_reviews_path(@book)
     else
-      @errors = @review.errors.full_messages
       render :edit
     end
   end
