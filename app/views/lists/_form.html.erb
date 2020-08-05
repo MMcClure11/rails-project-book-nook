@@ -14,8 +14,12 @@
 
       <% if current_user.books %>
         <div class="justify-content-center pl-5" style="width :50em;">
-        <%= f.collection_check_boxes :book_ids, list.books.sort_by_title, :id, :title %>
+        <%= f.collection_check_boxes :book_ids, list.books.sort_by_title, :id, :title do |box| %>
+          <div class="col pl-5"><%= box.check_box %><%= box.label { box.text } %></div>
+        <% end %>
       <% end %>
-      
-      <div class="row justify-content-center"><%= f.submit value="Submit", class: "btn btn-outline-info" %>
+      </div>
+    </div>
+
+      <div class="row justify-content-center"><%= f.submit value="Submit", class: "btn btn-outline-info" %></div>
     <% end %>
