@@ -18,7 +18,7 @@
     - [] create a book
     - [] edit a book
     - [] your lists
-    - [] lists index
+    - [X] lists show
     - [] create list
     - [] edit lists
     - [] most reviews

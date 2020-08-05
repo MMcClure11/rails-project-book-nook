@@ -33,7 +33,8 @@ Specs:
     - included for signup up, making books, lists, and reviews
 Confirm:
 
- - [] The application is pretty DRY
+ - [X] The application is pretty DRY
+    - went through and refactored where I found more succinct solutions
  - [X] Limited logic in controllers
     - went through and refactored moving repeated methods to ApplicationController
  - [X] Views use helper methods if appropriate
