@@ -22,6 +22,9 @@
     - [X] create list
     - [X] edit lists
     - [ ] most reviews
+    - [ ] all reviews
+    - [ ] create review
+    - [ ] edit review 
     - [ ] flash messages
 
 # Pagination
