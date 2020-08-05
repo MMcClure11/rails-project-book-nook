@@ -32,25 +32,8 @@
   <% end %>
 <% else %>
 
- <table class="table table-hover" >
-  <thead class="thead-dark">
-      <tr>
-          <th class="pl-5">Book Title</th>
-          <th class="pr-5">Author</th>
-          <th class="pl-5 ">Year Published</th>
-      </tr>
-  </thead>
+<%= render 'books_table', books: @books %>
 
-  <% @books.sort_by_title.each do |book| %>
-      <tbody>
-        <tr>
-          <td class="pl-5"><%= link_to book.title, book, class: 'text-info' %></td>
-          <td class="pr-5"><%= display_author(book.author) %></td>
-          <td class="pl-5"><%= book.year_published %></td>
-        </tr>
-      </tbody>
-  <% end %>
-</table>
 
 <% end %>
 
