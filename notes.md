@@ -52,3 +52,6 @@
 ## Auth
 - [x] change to github, used nickname as unique identifier
 
+# Favorites Model
+- [] joins table
+

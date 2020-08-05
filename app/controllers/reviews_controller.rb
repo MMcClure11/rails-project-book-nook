@@ -66,18 +66,13 @@ class ReviewsController < ApplicationController
 
   def update
     @book = Book.find(params[:review][:book_id])
-    if already_written_review?(@book.id)
-      flash[:notice] = "You already wrote a review for this book."
+    authorize(@review) 
+    @review.update(review_params)
+    if @review.save
       redirect_to book_reviews_path(@book)
     else
-      authorize(@review) 
-      @review.update(review_params)
-      if @review.save
-        redirect_to book_reviews_path(@book)
-      else
-        @errors = @review.errors.full_messages
-        render :edit
-      end
+      @errors = @review.errors.full_messages
+      render :edit
     end
   end
 
