@@ -1,10 +1,4 @@
-<% if @errors %>
-<ul>
-  <% @errors.each do |error| %>
-    <li><%= error %></li>
-  <% end %>
-</ul>
-<% end %>
+<%= render 'errors/error', model: @list %>
 
 <%= form_with model: list, local: true do |f| %>
   <%= f.label :name %>
