@@ -16,4 +16,13 @@ class User < ApplicationRecord
   def can_review?(book)
     self.reviews.where(book_id: book.id).empty? 
   end
+
+  def can_add_book_to_list?(book)
+    lists = []
+    self.lists.each do |list|
+      lists << list if !list.books.include?(book)
+    end
+    lists
+  end
+
 end
