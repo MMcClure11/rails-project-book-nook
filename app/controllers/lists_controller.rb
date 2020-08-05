@@ -40,6 +40,7 @@ class ListsController < ApplicationController
   def destroy
     authorize(@list)
     @list.destroy
+    flash[:success] = "The list: #{@list.name}, was successfully deleted."
     redirect_to lists_path
   end
 

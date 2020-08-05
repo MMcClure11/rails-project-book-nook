@@ -79,6 +79,7 @@ class ReviewsController < ApplicationController
     review = Review.find(params[:id])
     authorize(review)
     review.destroy
+    flash[:success] = "Your review for #{@book.title} was successfully deleted."
     redirect_to book_reviews_path(@book)
   end
 
