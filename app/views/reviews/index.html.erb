@@ -1,21 +1,32 @@
-<h1>Reviews for <%= @book.title %></h1>
+<h1 class= "display-4 text-dark text-center">Reviews for: <%= link_to @book.title, book_path(@book), class: 'text-info'%> by <%= @book.author %></h1>
+<div class="d-flex justify-content-center flex-wrap row-hl">
+
 
 <% if @book.reviews.empty? %>
   <h3>There are no reviews yet for this book!</h3>
 <% end %>
 
-<ul>
+
   <% @reviews.each do |review| %>
-    <li> Rating: <%= review.rating %> - <%= review.user.username %> says: <%= review.content %>
+  <br>
+  <div class="card mb-4 border-dark mr-4" style="width: 25rem;" style="display:flex"> 
+    <p class="card-header text-center bg-dark"><%= stars(review.rating) %></p>
+    <div class="card-body text-center">
+      <p class="lead"><%= review.content %></p>
     <% if owns_resource?(review)%>
       <%= link_to "Edit", edit_book_review_path(@book, review) if review.book%>
     <% end %>
-    </li>
+    </div>
+    <div class="card-footer text-center bg-dark text-info">
+      <div>Reviewed by: <%= review.user.username %> <br> <%= display_created_at(review.created_at) %> </div>
+    </div>
   <% end %>
-</ul>
+  </div>
+
+</div>
 
 <% if current_user.reviews.where(book_id: @book.id).empty? %>
-  <%= link_to "Add Review", new_book_review_path %><br>
+  <div class="text-center"><%= link_to "Add Review", new_book_review_path, class: "text-info" %></div>
 <% end %> 
-<%= link_to "View Book", book_path(@book) %><br>
-<%= link_to "All Books", books_path %>
+
+
