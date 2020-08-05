@@ -41,7 +41,7 @@ class BooksController < ApplicationController
     else
       @book.update(book_params)
       if @book.save
-        flash[:success] = "Your book was successfully updated."
+        flash[:success] = "The book was successfully updated."
         redirect_to @book
       else
         render :edit
@@ -51,6 +51,7 @@ class BooksController < ApplicationController
 
   def destroy
     @book.destroy
+    flash[:success] = "The book: #{@book.title}, was successfully deleted."
     redirect_to books_path
   end
 
