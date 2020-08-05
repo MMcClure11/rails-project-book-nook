@@ -36,6 +36,7 @@ Confirm:
  - [] The application is pretty DRY
  - [X] Limited logic in controllers
     - went through and refactored moving repeated methods to ApplicationController
- - [] Views use helper methods if appropriate
+ - [X] Views use helper methods if appropriate
+    - uses helpers for logged_in vs logged_out navbar, formatting displaying the author of a book, and displaying reviews
  - [X] Views use partials if appropriate
-    - use partials for forms when new and edit are the same such as for books, reviews, and lists
+    - use partials for forms when new and edit are the same such as for books, reviews, and lists, uses a partial to display error messages

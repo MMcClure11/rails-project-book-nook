@@ -10,8 +10,8 @@
 - [] refactor to scope or class method or helper method?
 - [x] protect lists from book show page
 
-## Helpers
-- [] add helper to display errors from validations OR use flash??
+# Partials
+- [X] add partial to display errors from validations 
 
 ## CSS
 - [] make it peerrrrty
