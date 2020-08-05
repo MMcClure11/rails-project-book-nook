@@ -10,7 +10,7 @@
         </div>
 <div class="card-footer text-muted text-center bg-dark">
   <% @book.lists.each do |list| %>
-    <% if list.user == current_user %>
+    <% if owns_resource?(list) %>
       <p>Reading List: <%= link_to list.name, list, class: 'text-info' %></p>
     <% end %>
   <% end %> 
@@ -54,7 +54,7 @@
   </div>  
   <% end %>
     
-  <% if current_user.reviews.where(book_id: @book.id).empty? %>
+  <% if current_user.can_review?(@book) %>
     <div class= "font-weight-bold text-dark h5 text-center pb-3"> Review <%= link_to @book.title, new_book_review_path(@book), class: 'text-info'%>  </div>
   <% end %>
 

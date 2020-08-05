@@ -12,4 +12,8 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
 
   scope :most_reviews, -> {joins(:reviews).group("users.id").order("count(reviews.id) DESC").limit(5)}
+
+  def can_review?(book)
+    self.reviews.where(book_id: book.id).empty? 
+  end
 end
