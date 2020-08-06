@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-around row-hl p-2">
-    <div class="card border-dark" style="width: 25rem;" style="display:flex">
+    <div class="card border-dark" style="width: 50rem;" style="display:flex">
       <div class="card-content text-center">
         <div class="h5 card-title text-dark"><%= @book.title %></div>
           <h4>Author: <%= display_author(@book.author) %></h4>
@@ -18,7 +18,7 @@
   <%= form_with model: @book, local: true do |f| %>
     <%= f.collection_select :list_ids, current_user.can_add_book_to_list?(@book), :id, :name, :include_hidden => false  %>
     <% if !current_user.can_add_book_to_list?(@book).empty? %>
-      <%= f.submit "Add Book to List(s)"%>
+      <%= f.submit "Add Book to List"%>
     <% end %>
   <% end %>
 
@@ -27,7 +27,7 @@
     <%= button_to "Delete", book_path(@book), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-outline-info m-1" %>
   <% end %>
   </div>
-  </div>
+  
 </div>
 
 <div class="p-4 item-hl">
@@ -35,7 +35,7 @@
     <p class="text-center">Be the first to review this book!</p>
   <% else %>
 
-  <div class="card border-dark mb-4" style="width: 25 rem;" style="display:flex">
+  <div class="card border-dark mb-4" style="width: 20 rem;" style="display:flex">
     <p class="card-header text-center bg-dark text-info"> Book Nook Rating: <%= @book.reviews.average(:rating).round %></p>
     <div class="card-body text-center">
       <h6 class="card-title">Book Reviews for <%= @book.title %></h6>

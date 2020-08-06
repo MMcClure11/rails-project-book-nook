@@ -37,7 +37,7 @@ class BooksController < ApplicationController
       new_list = List.find(params[:book][:list_ids])
       authorize(new_list)
       @book.lists << new_list
-      flash[:notice] = "Book was successfully added to your list(s)."
+      flash[:notice] = "Book was successfully added to your list."
       redirect_to @book
     else
       @book.update(book_params)
