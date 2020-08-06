@@ -1,15 +1,29 @@
 <%= render 'errors/error', model: @book %>
 
-<%= form_with model: book, local: true do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title, required: true%><br>
-  <%= f.label :author %>
-  <%= f.text_field :author, required: true%><br>
-  <%= f.label :year_published %>
-  <%= f.number_field :year_published %><br>
-  <%= f.label :page_count %>
-  <%= f.number_field :page_count %><br>
-  <%= f.label :description %>
-  <%= f.text_area :description %><br>
-  <%= f.submit %>
-<% end %>
+<div class="row justify-content-center">
+  <%= form_with model: book, local: true do |f| %>
+    <div class="text-center form-group" style="width: 25rem;">
+    <%= f.label :title %>
+    <%= f.text_field :title, required: true, class: "form-control" %>
+    </div>
+    <div class="text-center form-group" style="width: 25rem;">
+      <%= f.label :author %>
+      <%= f.text_field :author, required: true, class: "form-control" %>
+    </div>
+    <div class="text-center form-group" style="width: 25rem;">
+      <%= f.label :year_published %>
+      <%= f.number_field :year_published, class: "form-control"  %>
+    </div>
+    <div class="text-center form-group" style="width: 25rem;">
+      <%= f.label :page_count %>
+      <%= f.number_field :page_count, class: "form-control" %>
+    </div>
+    <div class="text-center form-group" style="width: 25rem;">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: "form-control"  %>
+    </div>
+    <div class="text-center">
+      <%= f.submit value="Submit", class: "btn btn-outline-info" %>
+    </div>
+  <% end %>
+</div>

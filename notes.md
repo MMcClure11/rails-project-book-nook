@@ -15,8 +15,8 @@
 
 ## CSS
 - [ ] make it peerrrrty
-    - [ ] create a book
-    - [ ] edit a book
+    - [X] create a book
+    - [X] edit a book
     - [X] your lists
     - [X] lists show
     - [X] create list
