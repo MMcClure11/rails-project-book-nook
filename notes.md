@@ -26,7 +26,7 @@
     - [x] create review
     - [x] edit review 
     - [X] flash messages
-    - [ ] error messages
+    - [X] error messages
     - [ ] search buttons
 
 # Pagination

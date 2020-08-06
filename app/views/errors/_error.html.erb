@@ -1,7 +1,14 @@
 <% if model.errors.any? %>
-  <ul>
-    <% model.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
+ <div id="error_explanation ">
+    <h3 class="text-center text-danger">
+     <%= pluralize(model.errors.count, "error") %>
+      prohibited this from being saved:
+    </h3>
+    <ul>
+      <% model.errors.full_messages.each do |msg| %>
+        <li class= "h5 list-unstyled text-center text-danger"><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
+
