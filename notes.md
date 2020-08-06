@@ -38,7 +38,7 @@
 - [X] remove option to manually create a book? manually made books do not appear in search, decided to keep so allow user to make own book if not found by googlebooks
   - [X] alternatively, have search work for all books in database and move current search to create a book??, have two different searches in index, one for BookNook collection and the other for GoogleBooks
 - [x] "fledg" returns an error because of .join on author nil class...fix? removed .join from create method, moved to books helper and gsub authors
-- [ ] ask Nicky, sometimes when i search a book it doesn't always find it...why would that be? example "The Name of the Wind", well it finds it, but then it rollsback the transaction
+- [X] ask Nicky, sometimes when i search a book it doesn't always find it...why would that be? example "The Name of the Wind", well it finds it, but then it rollsback the transaction IT WAS THE ADDED Unique VALIDATES!!!!!!!
 
 # Book Model
 - [ ] add genre as a model
