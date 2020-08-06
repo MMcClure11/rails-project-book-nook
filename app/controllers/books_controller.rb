@@ -34,9 +34,9 @@ class BooksController < ApplicationController
 
   def update
     if List.find_by_id(params[:book][:list_ids]).present?
-      new_lists = List.find(params[:book][:list_ids])
-      authorize_resources(new_lists)
-      @book.lists << new_lists
+      new_list = List.find(params[:book][:list_ids])
+      authorize(new_list)
+      @book.lists << new_list
       flash[:notice] = "Book was successfully added to your list(s)."
       redirect_to @book
     else

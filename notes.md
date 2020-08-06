@@ -14,7 +14,7 @@
 - [X] add partial to display errors from validations 
 
 ## CSS
-- [] make it peerrrrty
+- [ ] make it peerrrrty
     - [ ] create a book
     - [ ] edit a book
     - [X] your lists
@@ -27,10 +27,11 @@
     - [x] edit review 
     - [ ] flash messages
     - [ ] error messages
+    - [ ] search buttons
 
 # Pagination
 - [x] pagination gem
-- [] not quite working with search returning an empty array
+- [ ] not quite working with search returning an empty array
 
 # API
 - [X] incorporate it so users don't have to manually create books?
