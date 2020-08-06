@@ -41,7 +41,6 @@
 - [ ] ask Nicky, sometimes when i search a book it doesn't always find it...why would that be? example "The Name of the Wind", well it finds it, but then it rollsback the transaction
 - [ ] search clicked when empty returns .map error for nil nil class
 
-
 # Book Model
 - [ ] add genre as a model
 - [x] books can only be edited or deleted if there are no reviews or lists associated with it
