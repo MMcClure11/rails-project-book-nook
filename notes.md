@@ -3,7 +3,7 @@
 - [x] clean up controller
 - [x] verify protecting routes, user resource and redirect/show error pages appropriately
 
-## Lists
+# Lists
 - [x] adding a book to a list removes it from another user's list
 - [X] solved the above, but now they are making duplicates of the book in a user's list
 - [X] semi fix, only add books on list new and edit by using collection_select
@@ -14,7 +14,7 @@
 - [X] add partial to display errors from validations 
 - [X] partial for list books index page not rendering
 
-## CSS
+# CSS
 - [X] make it peerrrrty
     - [X] create a book
     - [X] edit a book
@@ -39,8 +39,8 @@
 - [X] remove option to manually create a book? manually made books do not appear in search, decided to keep so allow user to make own book if not found by googlebooks
   - [X] alternatively, have search work for all books in database and move current search to create a book??, have two different searches in index, one for BookNook collection and the other for GoogleBooks
 - [x] "fledg" returns an error because of .join on author nil class...fix? removed .join from create method, moved to books helper and gsub authors
-- [ ] ask Nicky, sometimes when i search a book it doesn't always find it...why would that be? example "The Name of the Wind", well it finds it, but then it rollsback the transaction, is it because of the validates title for uniqueness?
-- [ ] oh no! without unique validator for title the api makes duplicates!! plus i don't want people creating their own versions if the title already exists
+- [X] ask Nicky, sometimes when i search a book it doesn't always find it...why would that be? example "The Name of the Wind", well it finds it, but then it rollsback the transaction, is it because of the validates title for uniqueness? : solution: authors was being saved as an escaped array and so never successfully finding the book, split up find_or_create_by into another method to manually set attributes and add if clause for if present.
+- [X] oh no! without unique validator for title the api makes duplicates!! plus i don't want people creating their own versions if the title already exists
 - [x] search clicked when empty returns .map error for nil nil class; added OR statement for search["error"]
 
 # Book Model
@@ -58,7 +58,7 @@
 - [ ] book has_many notes, has_many users through notes
 - [ ] user has_many notes, has_many books through notes
 
-## Auth
+# Auth
 - [x] change to github, used nickname as unique identifier
 
 # Favorites Model

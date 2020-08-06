@@ -16,16 +16,29 @@ class Book < ApplicationRecord
     self.reviews.empty? && self.lists.empty?
   end
 
+  def self.response_to_book_attributes(response)
+    book_hash = {}
+    book_hash[:title] = response["title"]
+    book_hash[:author] = response["authors"].join(", ") if response["authors"]
+    book_hash[:year_published] = response["publishedDate"].to_i
+    book_hash[:page_count] = response["pageCount"]
+    book_hash[:description] = response["description"]
+    return book_hash
+  end
+
   def self.find_or_create_book_by_api_hash(book)
-    self.find_or_create_by(title: book["title"], 
-      author: book["authors"], 
-      year_published: book["publishedDate"].to_i, 
-      page_count: book["pageCount"], 
-      description: book["description"])
+      book_hash = self.response_to_book_attributes(book)
+      response = self.find_or_create_by(book_hash)
+      # puts response.errors.full_messages
+      # unless response.errors.full_messages.empty?
+      #   byebug
+      # end
+      # return response
   end
 
   def self.get_book_by_query(query)
     search = GoogleApi.search(query)
+    #byebug
     if search["totalItems"] == 0 || search["error"]
       books = []
     else
