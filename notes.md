@@ -25,7 +25,7 @@
     - [X] all reviews
     - [x] create review
     - [x] edit review 
-    - [ ] flash messages
+    - [X] flash messages
     - [ ] error messages
     - [ ] search buttons
 
