@@ -21,7 +21,7 @@
     - [X] lists show
     - [X] create list
     - [X] edit lists
-    - [ ] most reviews
+    - [x] most reviews
     - [X] all reviews
     - [x] create review
     - [x] edit review 
