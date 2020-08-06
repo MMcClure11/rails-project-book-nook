@@ -12,6 +12,7 @@
 
 # Partials
 - [X] add partial to display errors from validations 
+- [X] partial for list books index page not rendering
 
 ## CSS
 - [X] make it peerrrrty

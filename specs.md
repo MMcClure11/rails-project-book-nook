@@ -1,5 +1,6 @@
-# Specifications for the Rails Assessment
-Specs:
+## Specifications for the Rails Assessment
+
+# Specs:
 
  - [X] Using Ruby on Rails for the project 
     - made with 'rails new'
@@ -31,7 +32,8 @@ Specs:
     - books/2/reviews/new
  - [X] Include form display of validation errors (form URL e.g. /recipes/new)
     - included for signup up, making books, lists, and reviews
-Confirm:
+
+# Confirm:
 
  - [X] The application is pretty DRY
     - went through and refactored where I found more succinct solutions
@@ -40,4 +42,4 @@ Confirm:
  - [X] Views use helper methods if appropriate
     - uses helpers for logged_in vs logged_out navbar, formatting displaying the author of a book, and displaying reviews
  - [X] Views use partials if appropriate
-    - use partials for forms when new and edit are the same such as for books, reviews, and lists, uses a partial to display error messages
+    - use partials for forms when new and edit are the same such as for books, reviews, and lists, uses a partial to display error messages and books_table for books index and lists show page
