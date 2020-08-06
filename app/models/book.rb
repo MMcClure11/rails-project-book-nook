@@ -6,7 +6,7 @@ class Book < ApplicationRecord
   has_many :lists, through: :book_lists #, dependent: :destroy
   has_many :users, through: :book_lists
 
-  validates :title, presence: true#, uniqueness: true ###do i need this???? without makes dups everytime it searches, but with it, it does not find it through the api
+  validates :title, presence: true, uniqueness: true ###do i need this???? without makes dups everytime it searches, but with it, it does not find it through the api
   validates :author, presence: true
 
 
@@ -26,8 +26,7 @@ class Book < ApplicationRecord
 
   def self.get_book_by_query(query)
     search = GoogleApi.search(query)
-
-    if search["totalItems"] == 0 
+    if search["totalItems"] == 0 || search["error"]
       books = []
     else
       books = search["items"].map { |item| Book.find_or_create_book_by_api_hash(item["volumeInfo"]) }
