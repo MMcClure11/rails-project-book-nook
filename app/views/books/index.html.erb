@@ -1,15 +1,16 @@
-<h1 class="pt-3 display-4 text-center bg-light text-dark">The Book Nook Collection:</h1>
+<div class="pt-3 display-4 text-center bg-light text-dark">The Book Nook Collection:</div>
 
-
+<div class="d-flex justify-content-around row-hl p-2 bg-light">
  <%= form_tag(books_path, method: :get) do %>
-  <p class="text-center"><%= text_field_tag :search, nil, placeholder: 'GoogleBooks by Title' %>
-  <%= submit_tag ("Search"), class: "btn btn-outline-info" %></p>
+  <%= text_field_tag :search, nil, placeholder: 'GoogleBooks by Title' %>
+  <%= submit_tag ("Search"), class: "btn btn-outline-info btn-sm mb-1" %>
 <% end %>
 
 <%= form_tag(books_path, method: :get) do %>
-  <p class="text-center"><%= text_field_tag :query, nil, placeholder: 'Book Nook by Title' %>
-  <%= submit_tag ("Search"), class: "btn btn-outline-info" %></p>
+  <%= text_field_tag :query, nil, placeholder: 'Book Nook by Title' %>
+  <%= submit_tag ("Search"), class: "btn btn-outline-info btn-sm mb-1" %>
 <% end %>
+</div>
 
 <% if @search %>
   <% if @books.empty? %>
