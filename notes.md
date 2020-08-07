@@ -70,11 +70,11 @@
 - [ ] book.reviews.average(:rating).round refactor this (in highest ranked and book show page) to model method
 - [X] display author method removal
 - [ ] abstract out can_edit_and_delete book from bookscontroller to applicationcontroller
+- [ ] ask nicky about empty space in card on book show page
+- [ ] book show page don't show empty select tab for list 
 
 ## TODO
 - [ ] BLOG
 - [ ] 30 minute recording
 - [ ] youtube demo
 - [ ] Readme
-
-
