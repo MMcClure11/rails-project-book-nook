@@ -63,9 +63,14 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @book.destroy
-    flash[:success] = "The book: #{@book.title}, was successfully deleted."
-    redirect_to books_path
+    if @book.can_edit_and_delete?
+      @book.destroy
+      flash[:success] = "The book: #{@book.title}, was successfully deleted."
+      redirect_to books_path
+    else
+      flash[:notice] = "The book #{@book.title} cannot be deleted."
+      redirect_to @book
+    end
   end
 
   def highest_ranked
