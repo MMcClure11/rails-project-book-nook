@@ -30,6 +30,13 @@ class BooksController < ApplicationController
   end
 
   def edit
+    @book = Book.find_by_id(params[:id])
+    if @book.can_edit_and_delete?
+      render :edit
+    else
+      flash[:notice] = "The book #{@book.title} cannot be edited."
+      redirect_to @book
+    end
   end
 
   def update
@@ -40,12 +47,17 @@ class BooksController < ApplicationController
       flash[:success] = "Book was successfully added to your list."
       redirect_to @book
     else
-      @book.update(book_params)
-      if @book.save
-        flash[:success] = "The book was successfully updated."
-        redirect_to @book
+      if @book.can_edit_and_delete?
+        @book.update(book_params)
+        if @book.save
+          flash[:success] = "The book was successfully updated."
+          redirect_to @book
+        else
+          render :edit
+        end
       else
-        render :edit
+        flash[:notice] = "The book #{@book.title} cannot be edited."
+        redirect_to @book
       end
     end
   end

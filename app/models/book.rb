@@ -3,10 +3,10 @@ class Book < ApplicationRecord
   has_many :users, through: :reviews
 
   has_many :book_lists
-  has_many :lists, through: :book_lists #, dependent: :destroy
+  has_many :lists, through: :book_lists 
   has_many :users, through: :book_lists
 
-  validates :title, presence: true, uniqueness: true ###do i need this???? without makes dups everytime it searches, but with it, it does not find it through the api
+  validates :title, presence: true, uniqueness: true 
   validates :author, presence: true
 
 
