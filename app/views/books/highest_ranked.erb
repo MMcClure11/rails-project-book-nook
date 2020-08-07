@@ -1,0 +1,14 @@
+<h1 class= 'display-4 text-dark text-center'>Highest Ranked Books of Book Nook</h1>
+
+<div class="row justify-content-center">
+ <div class= "card border-dark mt-5 " style="width: 40rem;" >
+    <div class= "card-header bg-dark text-info h3 text-center">Top Ten</div>
+    <div class="card-content text-center">
+    <ul class= "list-group list-group-flush">
+      <% @books.each do |book| %>
+        <li class="list-group-item text-center text-dark"><%= link_to book.title, book %> - Average Rating: <%= book.reviews.average(:rating).round %> with <%= book.reviews.count %> review(s).</li>
+      <% end %>
+    </ul>
+    </div>
+  </div>
+</div>

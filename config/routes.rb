@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
 
+  get '/books/highest_ranked' => 'books#highest_ranked', as: :highest_ranked
+
   resources :books do 
     resources :reviews, except: [:show, :create, :update]
   end
@@ -21,6 +23,7 @@ Rails.application.routes.draw do
   get '/dashboard' => 'users#dashboard', as: :dashboard 
 
   get '/users/most_reviews' => 'users#most_reviews', as: :most_reviews
+  
 
   match '*path', :to => 'application#routing_error', via: [:get, :post]
 

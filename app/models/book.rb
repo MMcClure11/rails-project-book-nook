@@ -12,6 +12,9 @@ class Book < ApplicationRecord
 
   scope :sort_by_title, -> { order(title: :asc) }
 
+  scope :highest_ranked, -> {joins(:reviews).group("books.id").order("AVG(reviews.rating)  DESC").limit(10)}
+
+
   def can_edit_and_delete?
     self.reviews.empty? && self.lists.empty?
   end

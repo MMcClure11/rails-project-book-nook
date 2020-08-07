@@ -56,6 +56,11 @@ class BooksController < ApplicationController
     redirect_to books_path
   end
 
+  def highest_ranked
+    authenticate
+    @books = Book.highest_ranked
+  end
+
   private
   
   def get_book
