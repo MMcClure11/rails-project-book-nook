@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
       log_in(@user)
+      flash[:success] = "Successful login"
       redirect_to dashboard_path
     else
       flash[:danger] = "Invalid Credentials Given"
