@@ -48,7 +48,7 @@
 - [x] books can only be edited or deleted if there are no reviews or lists associated with it
 - [X] index after search add delete button 
 - [ ] add additional attributes that I can easily get from API (image)
-- [ ] book.reviews.average(:rating).round refactor this (in highest ranked and book show page) to model method
+
 
 # Reviews
 - [x] display average rating, use stars?
@@ -64,4 +64,9 @@
 
 # Favorites Model
 - [ ] joins table
+
+## Must Fix!
+- [ ] user login flash invalid credentials, then successful login, invalid credentials still displaying why??
+- [ ] book.reviews.average(:rating).round refactor this (in highest ranked and book show page) to model method
+
 

@@ -14,7 +14,6 @@ class UsersController < ApplicationController
       log_in(@user)
       redirect_to dashboard_path
     else
-      @errors = @user.errors.full_messages 
       render :new
     end
   end

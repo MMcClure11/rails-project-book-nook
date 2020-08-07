@@ -1,12 +1,6 @@
 <h1 class="display-4 text-center text-dark">Sign Up</h1>
 
-<% if @errors %>
-<ul>
-  <% @errors.each do |error| %>
-    <li><%= error %></li>
-  <% end %>
-<ul>
-<% end %>
+<%= render 'errors/error', model: @user %>
 
 <div class="row justify-content-center">
   <%= form_with model: @user, local: true do |f| %>
