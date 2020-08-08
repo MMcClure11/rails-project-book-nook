@@ -8,8 +8,8 @@ module ReviewsHelper
     end
   end
 
-  def display_created_at(date_time)
-    date_time.strftime("%e %b %Y - %l:%M%p")
+  def display_created_at(date)
+    date.strftime("%e %b %Y")
   end
 
 end
