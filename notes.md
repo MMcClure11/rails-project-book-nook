@@ -68,7 +68,7 @@
 
 ## Must Fix!
 - [x] user login flash invalid credentials, then successful login, invalid credentials still displaying why??
-- [ ] book.reviews.average(:rating).round refactor this (in highest ranked and book show page) to model method
+- [X] book.reviews.average(:rating).round refactor this (in highest ranked and book show page) to helper method
 - [X] display author method removal
 - [ ] abstract out can_edit_and_delete book from bookscontroller to applicationcontroller
 - [ ] ask nicky about empty space in card on book show page
