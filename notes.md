@@ -73,11 +73,11 @@
 - [X] abstract out add_book_to_list book from bookscontroller to applicationcontroller
 - [ ] ask nicky about empty space in card on book show page
 - [X] book show page don't show empty select tab for list 
-- [ ] intro paragraph on dashboard about how to use the site
+- [X] intro paragraph on dashboard about how to use the site
 
 ## TODO
 - [ ] BLOG
-- [ ] 30 minute recording
+- [X] 30 minute recording
 - [ ] youtube demo
 - [ ] Readme
 
