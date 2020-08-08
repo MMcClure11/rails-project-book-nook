@@ -6,4 +6,12 @@ class Review < ApplicationRecord
   validates :content, presence: true
 
   scope :recent, ->(num) { order('created_at DESC').limit(num) }
+
+  def user_username=(username)
+    self.user = User.find_or_create_by(username: username)
+  end
+
+  def user_username
+    self.user ? self.user.username : nil
+  end
 end

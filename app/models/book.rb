@@ -19,6 +19,8 @@ class Book < ApplicationRecord
     self.reviews.empty? && self.lists.empty?
   end
 
+ 
+
   def self.response_to_book_attributes(response)
     book_hash = {}
     book_hash[:title] = response["title"]
