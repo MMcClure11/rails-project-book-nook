@@ -2,7 +2,7 @@
 
 
 <% if @book.reviews.empty? %>
-  <h3>There are no reviews yet for this book!</h3>
+  <h3 class= "display-4 text-dark text-center">There are no reviews yet for this book!</h3>
 <% end %>
 
 
@@ -14,18 +14,18 @@
     <div class="card-body text-center">
       <p class="lead"><%= review.content %></p>
     <% if owns_resource?(review)%>
-      <span class="btn btn-outline-info"><%= link_to "Edit", edit_book_review_path(@book, review) if review.book%></span>
+      <%= link_to "Edit", edit_book_review_path(@book, review), class: "btn btn-outline-info m-2" if review.book%>
     <% end %>
     </div>
     <div class="card-footer text-center bg-dark text-info">
-      <div>Reviewed by: <%= review.user.username %> <br> <%= display_created_at(review.created_at) %> </div>
+      <div>Reviewed by: <%= review.user_username %> <br> <%= display_created_at(review.created_at) %> </div>
     </div>
   </div>
   <% end %>
 </div>
 
 <% if current_user.reviews.where(book_id: @book.id).empty? %>
-  <div class="text-center"><%= link_to "Add Review", new_book_review_path, class: "text-info" %></div>
+  <div class="text-center"><%= link_to "Add Review", new_book_review_path, class: "btn btn-outline-info m-2" %></div>
 <% end %> 
 
 
