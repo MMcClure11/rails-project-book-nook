@@ -41,9 +41,7 @@ class BooksController < ApplicationController
 
   def update
     if List.find_by_id(params[:book][:list_ids]).present?
-      new_list = List.find(params[:book][:list_ids])
-      authorize(new_list)
-      @book.lists << new_list
+      add_book_to_list(params[:book][:list_ids], @book)
       flash[:success] = "Book was successfully added to your list."
       redirect_to @book
     else
@@ -74,7 +72,6 @@ class BooksController < ApplicationController
   end
 
   def highest_ranked
-    authenticate
     @books = Book.highest_ranked
   end
 
