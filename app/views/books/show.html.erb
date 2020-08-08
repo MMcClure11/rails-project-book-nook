@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-around row-hl p-2">
     <div class="card border-dark" style="width: 50rem;" style="display:flex">
       <div class="card-content text-center">
-        <div class="h5 card-title text-dark"><%= @book.title %></div>
+        <div class="h2 card-title text-dark"><%= @book.title %></div>
           <h4>Author: <%= @book.author %></h4>
           <h4>Year Published: <%= @book.year_published %></h4>
            <h4>Page Count: <%= @book.page_count %></h4>
@@ -16,8 +16,8 @@
   <% end %> 
 
   <%= form_with model: @book, local: true do |f| %>
-    <%= f.collection_select :list_ids, current_user.can_add_book_to_list?(@book), :id, :name, :include_hidden => false  %>
     <% if !current_user.can_add_book_to_list?(@book).empty? %>
+      <%= f.collection_select :list_ids, current_user.can_add_book_to_list?(@book), :id, :name, :include_hidden => false  %>
       <%= f.submit "Add Book to List"%>
     <% end %>
   <% end %>

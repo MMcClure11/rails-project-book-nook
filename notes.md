@@ -29,6 +29,7 @@
     - [X] flash messages
     - [X] error messages
     - [X] search buttons
+- [ ] dark mode
 
 # Pagination
 - [x] pagination gem
@@ -71,10 +72,19 @@
 - [X] display author method removal
 - [ ] abstract out can_edit_and_delete book from bookscontroller to applicationcontroller
 - [ ] ask nicky about empty space in card on book show page
-- [ ] book show page don't show empty select tab for list 
+- [X] book show page don't show empty select tab for list 
+- [ ] intro paragraph on dashboard about how to use the site
 
 ## TODO
 - [ ] BLOG
 - [ ] 30 minute recording
 - [ ] youtube demo
 - [ ] Readme
+
+<b><a href="http://foo.com/">foo</a></b><img src="http://foo.com/bar.jpg" />
+
+<script>alert('mwuahahahahahahhaha')</script>
+
+<script>alert("hello")</script> 
+
+<img src="x" onerror="alert('hello')" />
