@@ -17,7 +17,7 @@
 
   <%= form_with model: @book, local: true do |f| %>
     <% if !current_user.can_add_book_to_list?(@book).empty? %>
-      <%= f.collection_select :list_ids, current_user.can_add_book_to_list?(@book), :id, :name, :include_hidden => false  %>
+      <%= f.collection_select :list_id, current_user.can_add_book_to_list?(@book), :id, :name, :include_hidden => false  %>
       <%= f.submit "Add Book to List", class: "btn btn-outline-info m-1"%>
     <% end %>
   <% end %>
