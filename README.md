@@ -10,6 +10,7 @@
 - [Installation](#installation)
 - [Contributing](#contributing)
 - [License](#license)
+- [Acknowledgements](#acknowledgements)
 
 ## <a id="about">About the Project</a>
 
@@ -55,3 +56,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/MMcClu
 ## <a id="license">License</a>
 
 Distributed under the MIT License. https://opensource.org/licenses/MIT
+
+## <a id="acknowledgements">Acknowledgements</a>
+- Flatiron School
+- @Jordles113
