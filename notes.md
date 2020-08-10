@@ -71,7 +71,7 @@
 - [X] book.reviews.average(:rating).round refactor this (in highest ranked and book show page) to helper method
 - [X] display author method removal
 - [X] abstract out add_book_to_list book from bookscontroller to applicationcontroller
-- [ ] ask nicky about empty space in card on book show page
+- [x] ask nicky about empty space in card on book show page: instead, stacked the two cards on top of each other
 - [X] book show page don't show empty select tab for list 
 - [X] intro paragraph on dashboard about how to use the site
 

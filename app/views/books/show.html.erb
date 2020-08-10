@@ -27,14 +27,15 @@
     <%= button_to "Delete", book_path(@book), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-outline-info m-1" %>
   <% end %>
   </div>
-  
+  </div>
 </div>
 
 <div class="p-4 item-hl">
   <% if !@book.reviews.present? %>
-    <p class="text-center">Be the first to review this book!</p>
+    <h3 class="text-center">Be the first to review this book!</h3>
   <% else %>
 
+<div class="d-flex justify-content-around row-hl p-2">
   <div class="card border-dark mb-4" style="width: 20 rem;" style="display:flex">
     <p class="card-header text-center bg-dark text-info"> Book Nook Rating: <%= average_rating(@book) %></p>
     <div class="card-body text-center">
@@ -49,7 +50,7 @@
     </div>
   </div>  
   <% end %>
-    
+</div>
   <% if current_user.can_review?(@book) %>
     <div class= "font-weight-bold text-dark h5 text-center pb-3"> Review <%= link_to @book.title, new_book_review_path(@book), class: 'text-info'%>  </div>
   <% end %>
