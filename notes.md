@@ -79,7 +79,7 @@
 - [ ] BLOG
 - [X] 30 minute recording
 - [X] youtube demo
-- [ ] Readme
+- [X] Readme
 
 <b><a href="http://foo.com/">foo</a></b><img src="http://foo.com/bar.jpg" />
 
