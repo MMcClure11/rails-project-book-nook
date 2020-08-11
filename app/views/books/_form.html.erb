@@ -24,7 +24,7 @@
     </div>
      <div class="text-center form-group" style="width: 25rem;">
       <%= f.label "Genres:" %>
-      <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :name do |box| %>
+      <%= f.collection_check_boxes :genre_ids, Genre.order_by_name, :id, :name do |box| %>
         <div class="col pl-5"><%= box.check_box %><%= box.label { box.text } %></div>
       <% end %>
     </div>
