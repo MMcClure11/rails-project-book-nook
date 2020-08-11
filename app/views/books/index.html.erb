@@ -7,8 +7,10 @@
 <% end %>
 
 <%= form_tag(books_path, method: :get) do %>
-  <%= text_field_tag :query, nil, placeholder: 'Book Nook by Title' %>
+  <%= text_field_tag :query, nil, placeholder: 'Search Book Nook' %>
   <%= submit_tag ("Search"), class: "btn btn-outline-info btn-sm mb-1" %>
+  <%= label_tag :filter, "What do you wish to search by?"%>
+  <%= select_tag :filter, raw("<option disabled>Select a Way To Search</option><option>Title</option><option>Author</option>")%>
 <% end %>
 </div>
 

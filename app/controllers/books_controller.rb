@@ -6,7 +6,11 @@ class BooksController < ApplicationController
     if @search = params[:search]
         @books = Book.get_book_by_query(params[:search])#.page(params[:page])
     elsif @search = params[:query]
-      @books = Book.where("title LIKE ?", "%#{params[:query]}%")
+      if params[:filter] == "Title"
+        @books = Book.where("title LIKE ?", "%#{params[:query]}%")
+      else
+        @books = Book.where("author LIKE ?", "%#{params[:query]}%")
+      end
     else
       @books = Book.all#.page(params[:page])
     end
