@@ -12,6 +12,7 @@ class Book < ApplicationRecord
   validates :title, presence: true, uniqueness: true 
   validates :author, presence: true
 
+  accepts_nested_attributes_for :genres
 
   scope :sort_by_title, -> { order(title: :asc) }
 
