@@ -56,10 +56,4 @@ class ApplicationController < ActionController::Base
     current_user.reviews.where(book_id: book).present?
   end
 
-  def add_book_to_list(list_params, book)
-    list = List.find(list_params)
-    authorize(list)
-    book.lists << list
-  end
-
 end

@@ -25,4 +25,13 @@ class User < ApplicationRecord
     lists
   end
 
+  def add_book_to_list(list_params, book)
+    list = List.find(list_params)
+    if list.user == self
+      book.lists << list
+    else
+      raise Errors::AuthorizationError.new
+    end
+  end
+
 end

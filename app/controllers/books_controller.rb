@@ -41,7 +41,7 @@ class BooksController < ApplicationController
 
   def update
     if List.find_by_id(params[:book][:list_id]).present?
-      add_book_to_list(params[:book][:list_id], @book)
+      current_user.add_book_to_list(params[:book][:list_id], @book)
       flash[:success] = "Book was successfully added to your list."
       redirect_to @book
     else
