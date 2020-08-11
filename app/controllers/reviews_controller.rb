@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
     if params[:book_id] && !Book.exists?(params[:book_id])
       flash[:notice] = "Book not found."
       redirect_to books_path
-    elsif already_written_review?(params[:book_id])
+    elsif current_user.already_written_review?(params[:book_id])
       flash[:notice] = "You already wrote a review for this book."
       redirect_to book_reviews_path(params[:book_id])
     else
@@ -33,7 +33,7 @@ class ReviewsController < ApplicationController
 
   def create
     @book = Book.find(params[:review][:book_id])
-    if already_written_review?(@book.id)
+    if current_user.already_written_review?(@book.id)
       flash[:notice] = "You already wrote a review for this book."
       redirect_to book_reviews_path(@book)
     else

@@ -34,4 +34,8 @@ class User < ApplicationRecord
     end
   end
 
+  def already_written_review?(book)
+    self.reviews.where(book_id: book).present?
+  end
+
 end

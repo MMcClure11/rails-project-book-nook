@@ -4,11 +4,11 @@ class BooksController < ApplicationController
 
   def index
     if @search = params[:search]
-        @books = Book.get_book_by_query(params[:search])#.page(params[:page])
+        @books = Book.get_book_by_query(params[:search])
     elsif @search = params[:query]
       @books = Book.where("title LIKE ?", "%#{params[:query]}%")
     else
-      @books = Book.all#.page(params[:page])
+      @books = Book.all
     end
   end
 

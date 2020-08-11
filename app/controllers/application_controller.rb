@@ -52,8 +52,4 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def already_written_review?(book)
-    current_user.reviews.where(book_id: book).present?
-  end
-
 end
