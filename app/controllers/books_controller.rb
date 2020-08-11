@@ -90,7 +90,8 @@ class BooksController < ApplicationController
       :author, 
       :year_published, 
       :page_count, 
-      :description, 
+      :description,
+      genre_ids: [], 
       genres_attributes: [:name])
   end
 

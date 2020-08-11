@@ -22,6 +22,10 @@
       <%= f.label :description %>
       <%= f.text_area :description, class: "form-control"  %>
     </div>
+     <div class="text-center form-group" style="width: 25rem;">
+      <%= f.label "Genres:" %>
+      <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :name  %>
+    </div>
     <div class="text-center form-group" style="width: 25rem;">
       <%= f.fields_for :genres, book.genres.build do |genres_form| %>
         <%= f.label "Add a new Genre" %>
