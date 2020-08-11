@@ -23,9 +23,9 @@
       <%= f.text_area :description, class: "form-control"  %>
     </div>
     <div class="text-center form-group" style="width: 25rem;">
-      <%= f.label "Add a new Genre" %>
-      <%= f.fields_for book.genres.build do |genres_form| %>
-        <%= f.text_field :name, class: "form-control"  %>
+      <%= f.fields_for :genres, book.genres.build do |genres_form| %>
+        <%= f.label "Add a new Genre" %>
+        <%= genres_form.text_field :name, class: "form-control"  %>
       <% end %>
     </div>
     <div class="text-center">
