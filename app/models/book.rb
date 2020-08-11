@@ -6,6 +6,9 @@ class Book < ApplicationRecord
   has_many :lists, through: :book_lists 
   has_many :users, through: :book_lists
 
+  has_many :book_genres
+  has_many :genres, through: :book_genres
+
   validates :title, presence: true, uniqueness: true 
   validates :author, presence: true
 
