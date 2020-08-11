@@ -59,13 +59,9 @@ class Book < ApplicationRecord
 
   def genres_attributes=(genres_attributes)
     genres_attributes.values.each do |genre_attribute|
-      if Genre.find_by(genre_attribute)
-        genre = Genre.find_by(genre_attribute)
-        self.genres << genre
-      else
-        unless genre_attribute.values.first == ""
-          genre = Genre.new(genre_attribute)
-          genre.save
+      if genre_attribute.values.present?
+        genre = Genre.new(genre_attribute)
+        if genre.save
           self.genres << genre
         end
       end
