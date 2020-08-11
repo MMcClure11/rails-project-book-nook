@@ -35,16 +35,10 @@ class Book < ApplicationRecord
   def self.find_or_create_book_by_api_hash(book)
       book_hash = self.response_to_book_attributes(book)
       response = self.find_or_create_by(book_hash)
-      # puts response.errors.full_messages
-      # unless response.errors.full_messages.empty?
-      #   byebug
-      # end
-      # return response
   end
 
   def self.get_book_by_query(query)
     search = GoogleApi.search(query)
-    #byebug
     if search["totalItems"] == 0 || search["error"]
       books = []
     else
