@@ -3,19 +3,8 @@ class ReviewsController < ApplicationController
   before_action :get_review, only: [:update]
 
   def index
-    if params[:book_id].present? 
-      @book = Book.find(params[:book_id])
-      @reviews = @book.reviews
-    else
-      @reviews = Review.all
-    end
-  end
-
-  def show
-    if params[:book_id]
-      @book = Book.find(params[:book_id])
-      @review = @book.reviews.find(params[:id])
-    end
+    @book = Book.find(params[:book_id])
+    @reviews = @book.reviews
   end
 
   def new
