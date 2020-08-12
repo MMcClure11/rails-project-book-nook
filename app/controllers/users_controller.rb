@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   
   def dashboard
+    authenticate
     @user = current_user
   end
 
