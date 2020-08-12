@@ -4,7 +4,6 @@ class Book < ApplicationRecord
 
   has_many :book_lists
   has_many :lists, through: :book_lists 
-  has_many :users, through: :book_lists
 
   validates :title, presence: true, uniqueness: true 
   validates :author, presence: true
@@ -13,7 +12,7 @@ class Book < ApplicationRecord
   scope :sort_by_title, -> { order(title: :asc) }
 
   scope :highest_ranked, -> {joins(:reviews).group("books.id").order("AVG(reviews.rating)  DESC").limit(10)}
-  
+
 
   def can_edit_and_delete?
     self.reviews.empty? && self.lists.empty?
