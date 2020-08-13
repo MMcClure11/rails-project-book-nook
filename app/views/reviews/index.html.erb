@@ -24,9 +24,9 @@
     </div>
     <div class="card-footer text-center bg-dark text-info">
       <% if @book %>
-        <div>Reviewed by: <%= review.user_username %> <br> <%= display_created_at(review.created_at) %> </div>
+        <div>Reviewed by: <%= link_to review.user_username, user_reviews_path(review.user) %> <br> <%= display_created_at(review.created_at) %> </div>
       <% else %>
-        <div>Book: <%= review.book.title %> <br> <%= display_created_at(review.created_at) %> </div>
+        <div>Book: <%= link_to review.book.title, book_path(review.book), class: "text-info" %> <br> <%= display_created_at(review.created_at) %> </div>
       <% end %>
     </div>
   </div>
