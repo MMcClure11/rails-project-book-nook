@@ -3,8 +3,13 @@ class ReviewsController < ApplicationController
   before_action :get_review, only: [:update]
 
   def index
-    @book = Book.find(params[:book_id])
-    @reviews = @book.reviews
+    if params[:book_id]
+      @book = Book.find(params[:book_id])
+      @reviews = @book.reviews
+    else 
+      @user = User.find(params[:user_id])
+      @reviews = @user.reviews
+    end
   end
 
   def new

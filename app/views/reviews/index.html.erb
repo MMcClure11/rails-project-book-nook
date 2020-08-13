@@ -1,8 +1,13 @@
-<h1 class= "display-4 text-dark text-center">Reviews for: <%= link_to @book.title, book_path(@book), class: 'text-info'%> by <%= @book.author %></h1>
-
-
-<% if @book.reviews.empty? %>
+<% if @book %>
+  <h1 class= "display-4 text-dark text-center">Reviews for: <%= link_to @book.title, book_path(@book), class: 'text-info'%> by <%= @book.author %></h1>
+  <% if @book.reviews.empty? %>
   <h3 class= "display-4 text-dark text-center">There are no reviews yet for this book!</h3>
+  <% end %>
+  <% if current_user.reviews.where(book_id: @book.id).empty? %>
+  <div class="text-center"><%= link_to "Add Review", new_book_review_path, class: "btn btn-outline-info m-2" %></div>
+<% end %> 
+<% else %>
+  <h1 class= "display-4 text-dark text-center">Reviews by: <%= @user.username %></h1>
 <% end %>
 
 
@@ -13,19 +18,21 @@
     <p class="card-header text-center bg-dark"><%= stars(review.rating) %></p>
     <div class="card-body text-center">
       <p class="lead"><%= review.content %></p>
-    <% if owns_resource?(review)%>
+    <% if owns_resource?(review) && @book %>
       <%= link_to "Edit", edit_book_review_path(@book, review), class: "btn btn-outline-info m-2" if review.book%>
     <% end %>
     </div>
     <div class="card-footer text-center bg-dark text-info">
-      <div>Reviewed by: <%= review.user_username %> <br> <%= display_created_at(review.created_at) %> </div>
+      <% if @book %>
+        <div>Reviewed by: <%= review.user_username %> <br> <%= display_created_at(review.created_at) %> </div>
+      <% else %>
+        <div>Book: <%= review.book.title %> <br> <%= display_created_at(review.created_at) %> </div>
+      <% end %>
     </div>
   </div>
   <% end %>
 </div>
 
-<% if current_user.reviews.where(book_id: @book.id).empty? %>
-  <div class="text-center"><%= link_to "Add Review", new_book_review_path, class: "btn btn-outline-info m-2" %></div>
-<% end %> 
+
 
 
