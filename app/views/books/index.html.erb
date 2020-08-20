@@ -53,7 +53,7 @@
 
 <% end %>
 
-<%# if @books.present? %>
-  <%#= paginate(@books) %>
-<%# end %>
+<% if !@books.empty? %>
+  <%= paginate(@books) %>
+<% end %>
 
