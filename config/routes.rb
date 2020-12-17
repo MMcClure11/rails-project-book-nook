@@ -16,18 +16,16 @@ Rails.application.routes.draw do
     resources :reviews, except: [:show, :create, :update]
   end
 
-  resources :users do
-    resources :reviews, only: [:index ]
-  end
-
   resources :reviews, only: [:create, :update]
   resources :lists
-  resources :users, except: [:new, :show, :index]
+
+  resources :users, except: [:new, :show, :index] do
+    resources :reviews, only: [:index ]
+  end
 
   get '/dashboard' => 'users#dashboard', as: :dashboard 
 
   get '/users/most_reviews' => 'users#most_reviews', as: :most_reviews
-  
 
   # match '*path', :to => 'application#routing_error', via: [:get, :post]
 
