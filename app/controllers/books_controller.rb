@@ -5,10 +5,17 @@ class BooksController < ApplicationController
   def index
     if @search = params[:search]
         @books = Book.get_book_by_query(params[:search])
+        if !@books.empty?
+          @books = Book.get_book_by_query(params[:search]).page(params[:page])
+        end
     elsif @search = params[:query]
-      @books = Book.where("title LIKE ?", "%#{params[:query]}%")
+      if params[:filter] == "Title"
+        @books = Book.where("title LIKE ?", "%#{params[:query]}%").page(params[:page])
+      else
+        @books = Book.where("author LIKE ?", "%#{params[:query]}%").page(params[:page])
+      end
     else
-      @books = Book.all
+      @books = Book.all.page(params[:page])
     end
   end
 
@@ -82,7 +89,13 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    params.require(:book).permit(:title, :author, :year_published, :page_count, :description)
+    params.require(:book).permit(:title, 
+      :author, 
+      :year_published, 
+      :page_count, 
+      :description,
+      genre_ids: [], 
+      genres_attributes: [:name])
   end
 
 end

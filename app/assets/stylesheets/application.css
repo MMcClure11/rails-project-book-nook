@@ -32,9 +32,14 @@
   font-size: xx-large;
  }
 
- .field_with_errors {
-  border-width: 1px;
-  border-style: solid;
-  border-color:red;
-  border-radius: 4px;
+ .page-item.active .page-link {
+  color: #17A2b8;
+  border-color: rgb(168, 167, 167) !important;
+  border-width: 2px !important;
+  border-radius: 4px !important;
+ }
+
+ .page-link {
+  background-color: #17A2b8 !important;
+  color: #fff !important;
  }

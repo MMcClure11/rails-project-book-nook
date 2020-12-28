@@ -22,6 +22,18 @@
       <%= f.label :description %>
       <%= f.text_area :description, class: "form-control"  %>
     </div>
+     <div class="text-center form-group" style="width: 25rem;">
+      <%= f.label "Genres:" %>
+      <%= f.collection_check_boxes :genre_ids, Genre.order_by_name, :id, :name do |box| %>
+        <div class="col pl-5"><%= box.check_box %><%= box.label { box.text } %></div>
+      <% end %>
+    </div>
+    <div class="text-center form-group" style="width: 25rem;">
+      <%= f.fields_for :genres, book.genres.build do |genres_form| %>
+        <%= f.label "Add a new Genre" %>
+        <%= genres_form.text_field :name, class: "form-control"  %>
+      <% end %>
+    </div>
     <div class="text-center">
       <%= f.submit value="Submit", class: "btn btn-outline-info" %>
     </div>

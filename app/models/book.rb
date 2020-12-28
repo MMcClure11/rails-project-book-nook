@@ -5,9 +5,13 @@ class Book < ApplicationRecord
   has_many :book_lists
   has_many :lists, through: :book_lists 
 
+  has_many :book_genres
+  has_many :genres, through: :book_genres
+
   validates :title, presence: true, uniqueness: true 
   validates :author, presence: true
 
+  accepts_nested_attributes_for :genres
 
   scope :sort_by_title, -> { order(title: :asc) }
 
@@ -41,6 +45,38 @@ end
     book_hash[:page_count] = response["pageCount"]
     book_hash[:description] = response["description"]
     return book_hash
+  end
+
+  # def self.find_or_create_book_by_api_hash(book)
+  #     book_hash = self.response_to_book_attributes(book)
+  #     response = self.find_or_create_by(book_hash)
+  #     # puts response.errors.full_messages
+  #     # unless response.errors.full_messages.empty?
+  #     #   byebug
+  #     # end
+  #     # return response
+  # end
+
+  # def self.get_book_by_query(query)
+  #   search = GoogleApi.search(query)
+  #   #byebug
+  #   if search["totalItems"] == 0 || search["error"]
+  #     books = []
+  #   else
+  #     books = search["items"].map { |item| Book.find_or_create_book_by_api_hash(item["volumeInfo"]) }
+  #     Book.where(id: books.pluck(:id))
+  #   end
+  # end
+
+  def genres_attributes=(genres_attributes)
+    genres_attributes.values.each do |genre_attribute|
+      if genre_attribute.values.present?
+        genre = Genre.new(genre_attribute)
+        if genre.save
+          self.genres << genre
+        end
+      end
+    end
   end
 
 end

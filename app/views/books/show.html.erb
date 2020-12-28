@@ -2,7 +2,13 @@
     <div class="card border-dark" style="width: 50rem;" style="display:flex">
       <div class="card-content text-center">
         <div class="h2 card-title text-dark"><%= @book.title %></div>
-          <h4>Author: <%= @book.author %></h4>
+          <h4>Genres:</h4> 
+          <ul class="list-unstyled">
+            <% @book.genres.order_by_name.uniq.each do |genre| %>
+              <li><%= genre.name %></li>
+            <% end %>
+          </ul>
+          <h4>Author(s): <%= @book.author %></h4>
           <h4>Year Published: <%= @book.year_published %></h4>
            <h4>Page Count: <%= @book.page_count %></h4>
           <h4>Description:</h4>
