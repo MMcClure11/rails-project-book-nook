@@ -76,7 +76,7 @@
 - [X] intro paragraph on dashboard about how to use the site
 
 ## TODO
-- [ ] BLOG
+- [X] BLOG
 - [X] 30 minute recording
 - [X] youtube demo
 - [X] Readme
@@ -88,3 +88,5 @@
 <script>alert("hello")</script> 
 
 <img src="x" onerror="alert('hello')" />
+
+# Deploy
