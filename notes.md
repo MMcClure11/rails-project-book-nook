@@ -48,7 +48,9 @@
 - [X] add genre as a model
 - [x] books can only be edited or deleted if there are no reviews or lists associated with it
 - [X] index after search add delete button 
-- [ ] add additional attributes that I can easily get from API (image)
+- [ ] add additional attributes that I can easily get from API
+  - [ ] genre
+  - [ ] image
 
 
 # Reviews
