@@ -33,7 +33,7 @@
 
 # Pagination
 - [x] pagination gem
-- [ ] not quite working with search returning an empty array
+- [X] not quite working with search returning an empty array
 
 # API
 - [X] incorporate it so users don't have to manually create books?
@@ -45,7 +45,7 @@
 - [x] search clicked when empty returns .map error for nil nil class; added OR statement for search["error"]
 
 # Book Model
-- [ ] add genre as a model
+- [X] add genre as a model
 - [x] books can only be edited or deleted if there are no reviews or lists associated with it
 - [X] index after search add delete button 
 - [ ] add additional attributes that I can easily get from API (image)
