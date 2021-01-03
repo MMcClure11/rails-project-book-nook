@@ -81,6 +81,7 @@
 - [X] BLOG
 - [X] 30 minute recording
 - [X] youtube demo
+- [] redo demo silently, and under 2 minutes, as close to 1 minute as can get
 - [X] Readme
 
 <b><a href="http://foo.com/">foo</a></b><img src="http://foo.com/bar.jpg" />
